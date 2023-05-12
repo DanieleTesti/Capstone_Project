@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+.gym-navbar {
+  background-color: #232323;
+  padding: 10px;
+
+  .navbar-brand {
+    color: #fff;
+    font-weight: bold;
+    font-size: 24px;
+    text-decoration: none;
+  }
+
+  .link {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-link {
+    color: #fff;
+    margin-right: 15px;
+    margin-left: 15px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+      color: #ffc107;
+    }
+  }
+}
+
+.first-section {
+  img {
+    width: 100%;
+    height: 800px !important;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Nunito", sans-serif;
+  font-size: 22px;
+  color: #fff;
+  width: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background-color: dodgerblue;
+}
+
+.Login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  //min-height: 100vh;
+  padding: 1rem 0.5rem;
+}
+
+section {
+  width: 100%;
+  max-width: 420px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  padding-bottom: 1rem;
+}
+
+a,
+a:visited {
+  color: #fff;
+}
+
+input[type="text"],
+input[type="password"],
+button,
+textarea {
+  font-family: "Nunito", sans-serif;
+  font-size: 22px;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+label,
+button {
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.5rem;
+}
+
+.instructions {
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  background: #000;
+  color: #fff;
+  padding: 0.25rem;
+  position: relative;
+  bottom: -10px;
+}
+
+.instructions > svg {
+  margin-right: 0.25rem;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.hide {
+  display: none;
+}
+
+.valid {
+  color: limegreen;
+  margin-left: 0.25rem;
+}
+
+.invalid {
+  color: red;
+  margin-left: 0.25rem;
+}
+
+.errmsg {
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.line {
+  display: inline-block;
+}
+
+.corsi {
+  filter: brightness(0.7); // applica un'oscurità iniziale al 50%
+  transition: filter 0.3s; // aggiunge un'animazione di transizione
+
+  &:hover {
+    filter: brightness(
+      0.1
+    ); // rende l'immagine ancora più scura al passaggio del mouse
+  }
+  position: relative; // Set the parent container to position relative
+
+  h3,
+  p {
+    position: absolute; // Set the child elements to position absolute
+    color: #fff; // Add desired text color
+    text-align: center; // Center the text horizontally
+    width: 100%; // Set the width to cover the entire parent container
+  }
+
+  h3 {
+    top: 50%; // Position the h3 element to the vertical center
+    transform: translateY(-50%); // Center the h3 element vertically
+  }
+
+  p {
+    bottom: 0; // Position the p element to the bottom of the parent container
+  }
+}
