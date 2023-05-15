@@ -21,8 +21,8 @@ function GymNavbar() {
           <Link to={"/centro"} className="nav-link">
             Il nostro centro
           </Link>
-          <Link to={"#"} className="nav-link">
-            Pacchetti
+          <Link to={"/corsi"} className="nav-link">
+            Corsi
           </Link>
           <Link to={"#"} className="nav-link">
             Contatti

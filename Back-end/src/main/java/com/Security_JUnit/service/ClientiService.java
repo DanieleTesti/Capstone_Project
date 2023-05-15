@@ -11,8 +11,11 @@ import org.springframework.stereotype.Service;
 import com.Security_JUnit.auth.exception.MyAPIException;
 import com.Security_JUnit.auth.service.AuthServiceImpl;
 import com.Security_JUnit.models.Cliente;
+import com.Security_JUnit.models.Corso;
 import com.Security_JUnit.payload.ClienteDto;
 import com.Security_JUnit.repository.ClienteRepo;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class ClientiService {
@@ -75,5 +78,22 @@ public class ClientiService {
 		clienterepo.save(cliente);
 		System.out.println("Cliente salvato");
 		return cliente;
+	}
+
+	public Cliente addCorso(Cliente cliente, Corso corso) {
+		cliente.getCorso().add(corso);
+		return cliente;
+	}
+
+	public void saveOrUpdate(Cliente cliente) {
+		clienterepo.save(cliente);
+	}
+
+	public Cliente findUserByUsername(String username) {
+		if (!clienterepo.existsByUsername(username)) {
+			throw new EntityNotFoundException("User not exist");
+		} else {
+			return clienterepo.findByUsername(username).get();
+		}
 	}
 }

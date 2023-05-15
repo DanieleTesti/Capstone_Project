@@ -15,7 +15,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -43,13 +42,10 @@ public class Cliente {
 	@Column(nullable = false)
 	private String password;
 
-//	@OneToOne
-//	private Abbonamento abbonamento;
-
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	private Set<Role> roles = new HashSet<>();
 
-	@OneToMany(fetch = FetchType.EAGER)
-	private List<Corso> id_corso = new ArrayList<>();
+	@ManyToMany(fetch = FetchType.EAGER)
+	private List<Corso> corso = new ArrayList<>();
 
 }

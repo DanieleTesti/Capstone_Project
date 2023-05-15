@@ -22,8 +22,8 @@ import com.Security_JUnit.service.ClientiService;
 import com.Security_JUnit.service.CorsiService;
 
 @RestController
-@RequestMapping("/corso")
-@CrossOrigin(origins = "*", maxAge = 6000000)
+@RequestMapping("/api/corso")
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 6000000, allowCredentials = "true")
 public class CorsoController {
 
 	@Autowired
@@ -32,7 +32,7 @@ public class CorsoController {
 	ClientiService clienteservice;
 
 	@GetMapping("/all")
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+//	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 	public ResponseEntity<List<Corso>> trovaCorsiAll() {
 		return new ResponseEntity<List<Corso>>(corsoservice.findAllCorsi(), HttpStatus.OK);
 	}

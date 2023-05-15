@@ -15,13 +15,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Security_JUnit.auth.service.AuthService;
 import com.Security_JUnit.models.Cliente;
+import com.Security_JUnit.models.Corso;
 import com.Security_JUnit.payload.ClienteDto;
 import com.Security_JUnit.service.ClientiService;
+import com.Security_JUnit.service.CorsiService;
 
 @RestController
-@RequestMapping("/cliente")
+@RequestMapping("/api/cliente")
 @CrossOrigin(origins = "http://localhost:3000", maxAge = 6000000, allowCredentials = "true")
 public class ClienteController {
 
@@ -29,12 +30,18 @@ public class ClienteController {
 	@Autowired
 	ClientiService clientiService;
 	@Autowired
-	AuthService corsoservice;
+	CorsiService corsoservice;
 
 	@GetMapping("/{id}")
 	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 	public ResponseEntity<Cliente> trovaClienteTramiteId(@PathVariable Long id) {
 		return new ResponseEntity<Cliente>(clientiService.findById(id), HttpStatus.OK);
+	}
+
+	@GetMapping("/username/{username}")
+	// @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	public ResponseEntity<Cliente> findByUsername(@PathVariable String username) {
+		return new ResponseEntity<Cliente>(clientiService.findUserByUsername(username), HttpStatus.OK);
 	}
 
 	@GetMapping("/all")
@@ -50,7 +57,7 @@ public class ClienteController {
 	}
 
 	@PutMapping()
-	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
 	public ResponseEntity<?> updateCliente(@RequestBody Cliente c) {
 		return new ResponseEntity<Cliente>(clientiService.modificaCliente(c), HttpStatus.OK);
 	}
@@ -61,10 +68,15 @@ public class ClienteController {
 		return new ResponseEntity<Cliente>(clientiService.creaCliente(c), HttpStatus.OK);
 	}
 
-//	@PostMapping("/add")
-//	@PreAuthorize("hasRole('ADMIN')")
-//	public ResponseEntity<Cliente> addCorsoToCliente(@RequestBody Long id, @RequestBody Long corso) {
-//		return new ResponseEntity<Cliente>(clientiService.findById(id), corsoservice.findById(corso), HttpStatus.OK);
-//	}
+	@PostMapping("/addCorso/{idCliente}/{idCorso}")
+	@PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+	public ResponseEntity<Cliente> addCorsoToCliente(@PathVariable Long idCliente, @PathVariable Long idCorso) {
+		Cliente cliente = clientiService.findById(idCliente);
+		Corso corso = corsoservice.findById(idCorso);
+		cliente.getCorso().add(corso); // aggiungi il corso al cliente
+		clientiService.saveOrUpdate(cliente); // salva il cliente nel database
+		return new ResponseEntity<Cliente>(cliente, HttpStatus.CREATED);
+	}
+
 
 }
