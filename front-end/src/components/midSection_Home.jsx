@@ -1,8 +1,9 @@
-import { Container, Row, Col, Image, Button } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 import promo from "../img/copertina-sito-500x315.png";
 import yoga from "../img/yoga.webp";
 import karate from "../img/karate.webp";
 import nuoto from "../img/nuoto.jpeg";
+import { Link } from "react-router-dom";
 
 function PromotionsSection() {
   return (
@@ -24,67 +25,79 @@ function CoursesSection() {
           <h2>I nostri corsi</h2>
           <Row>
             <Col style={{ position: "relative", padding: "0px" }} md={4}>
-              <Image
-                src={yoga}
-                alt="yoga Image 1"
-                fluid
-                style={{ height: " 380px", width: "100%" }}
-                className="corsi"
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  justifyContent: "center",
-                  alignConten: "center",
-                  top: "140px",
-                }}
-              >
-                <h3>Corso di Yoga</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                {/* <Button variant="primary">Scopri di più</Button> */}
-              </div>
+              <Link to="/centro">
+                <Image
+                  src={yoga}
+                  alt="yoga Image 1"
+                  fluid
+                  style={{ height: " 380px", width: "100%" }}
+                  className="corsi"
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    justifyContent: "center",
+                    alignConten: "center",
+                    top: "140px",
+                  }}
+                >
+                  <h3>Corso di Yoga</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                  {/* <Button variant="primary">Scopri di più</Button> */}
+                </div>
+              </Link>
             </Col>
             <Col md={4} style={{ position: "relative", padding: "0px" }}>
-              <Image
-                src={karate}
-                alt="karate Image 2"
-                fluid
-                style={{ height: " 380px", width: "100%" }}
-                className="corsi"
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  justifyContent: "center",
-                  alignConten: "center",
-                  top: "140px",
-                }}
-              >
-                <h3>Corso di Karate</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                {/* <Button variant="primary">Scopri di più</Button> */}
-              </div>
+              <Link to="/centro">
+                <Image
+                  src={karate}
+                  alt="karate Image 2"
+                  fluid
+                  style={{ height: " 380px", width: "100%" }}
+                  className="corsi"
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    justifyContent: "center",
+                    alignConten: "center",
+                    top: "140px",
+                  }}
+                >
+                  <h3>Corso di Karate</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                  {/* <Button variant="primary">Scopri di più</Button> */}
+                </div>
+              </Link>
             </Col>
             <Col style={{ position: "relative", padding: "0px" }} md={4}>
-              <Image
-                src={nuoto}
-                alt="nuoto Image 3"
-                fluid
-                style={{ height: " 380px", width: "100%" }}
-                className="corsi"
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  justifyContent: "center",
-                  alignConten: "center",
-                  top: "140px",
-                }}
-              >
-                <h3>Corso di Nuoto</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                {/* <Button variant="primary">Scopri di più</Button> */}
-              </div>
+              <Link to="/centro">
+                <Image
+                  src={nuoto}
+                  alt="nuoto Image 3"
+                  fluid
+                  style={{ height: " 380px", width: "100%" }}
+                  className="corsi"
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    justifyContent: "center",
+                    alignConten: "center",
+                    top: "140px",
+                  }}
+                >
+                  <h3>Corso di Nuoto</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                  {/* <Button variant="primary">Scopri di più</Button> */}
+                </div>
+              </Link>
             </Col>
           </Row>
         </div>

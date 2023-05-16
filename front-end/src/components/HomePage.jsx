@@ -1,10 +1,6 @@
 import IndividualIntervalsExample from "./first_section";
 import GymPage from "./midSection_Home";
-import {
-  ALL_USER,
-  FETCH_CLIENTE,
-  fetchCliente,
-} from "../Redux/ActionTypes/clienteAction";
+import { ALL_USER, allClienti } from "../Redux/ActionTypes/clienteAction";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
@@ -13,8 +9,8 @@ function HomePage() {
 
   useEffect(() => {
     (async () => {
-      let data = fetchCliente();
-
+      let data = await allClienti();
+      console.log(data);
       dispatch({
         type: ALL_USER,
         payload: data,

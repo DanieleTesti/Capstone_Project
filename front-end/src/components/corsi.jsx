@@ -1,27 +1,24 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { CORSI_ALL, fetchCorsi } from "../Redux/ActionTypes/corsiAction";
+import { useDispatch, useSelector } from "react-redux";
 
 const CorsiList = () => {
-  const [corsi, setCorsi] = useState([]);
+  const corsi = useSelector((state) => state.corsi.AllCorsi);
+
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    fetchCorsi();
-  }, []);
+  const dispatch = useDispatch();
 
-  const fetchCorsi = async () => {
-    try {
-      const response = await axios.get("http://localhost:8081/api/corso/all");
-      setCorsi(response.data);
-      setError(null);
-    } catch (error) {
-      if (error.response && error.response.status === 401) {
-        setError("Non sei autorizzato a accedere a questa risorsa.");
-      } else {
-        setError("Si è verificato un errore durante il recupero dei corsi.");
-      }
-    }
-  };
+  useEffect(() => {
+    (async () => {
+      let data = await fetchCorsi();
+      console.log(data);
+      dispatch({
+        type: CORSI_ALL,
+        payload: data,
+      });
+    })();
+  }, []);
 
   return (
     <div>
@@ -30,10 +27,10 @@ const CorsiList = () => {
         <p>{error}</p>
       ) : (
         <ul>
-          {corsi.map((corso) => (
-            <li key={corso.corso}>
-              {corso.descrizione_Corso}. Insegnante: {corso.insegnante.nome}{" "}
-              {corso.insegnante.cognome}
+          {corsi?.map((corsi) => (
+            <li key={corsi.corso}>
+              {corsi.descrizione_Corso}. Insegnante: {corsi.insegnante.nome}{" "}
+              {corsi.insegnante.cognome}
             </li>
           ))}
         </ul>
