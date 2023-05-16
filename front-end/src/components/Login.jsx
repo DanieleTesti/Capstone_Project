@@ -3,12 +3,14 @@ import useAuth from "../hooks/useAuth";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import axios from "../api/axios";
+import { FETCH_CLIENTE } from "../Redux/ActionTypes/clienteAction";
+import { useDispatch } from "react-redux";
 const LOGIN_URL = "/api/auth/login";
 
 const Login = () => {
   const { setAuth } = useAuth();
   const [autenticato, setAutenticato] = useState(setAuth);
-
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -48,11 +50,21 @@ const Login = () => {
           withCredentials: true,
         }
       );
-      console.log(JSON.stringify(response?.data));
-      //console.log(JSON.stringify(response));
+      // console.log(JSON.stringify(response?.data));
+
+      const id = response?.data?.id;
       const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
-      setAutenticato({ username, password, roles, accessToken });
+
+      console.log(id, roles);
+
+      setAutenticato({ id, username, password, roles, accessToken });
+
+      dispatch({
+        type: FETCH_CLIENTE,
+        payload: { id, username, accessToken, roles },
+      });
+
       setUsername("");
       setPassword("");
       setSuccess(true);
