@@ -50,7 +50,6 @@ const Login = () => {
           withCredentials: true,
         }
       );
-      // console.log(JSON.stringify(response?.data));
 
       const id = response?.data?.id;
       const accessToken = response?.data?.accessToken;
@@ -85,7 +84,7 @@ const Login = () => {
   };
 
   return (
-    <>
+    <div className="Login">
       {success ? (
         <section>
           <h1>You are logged in!</h1>
@@ -126,6 +125,7 @@ const Login = () => {
               value={password}
               required
             />
+            <br />
             <button>Sign In</button>
           </form>
           <p>
@@ -137,7 +137,7 @@ const Login = () => {
           </p>
         </section>
       )}
-    </>
+    </div>
   );
 };
 
