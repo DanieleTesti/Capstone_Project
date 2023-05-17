@@ -49,10 +49,10 @@ function GymNavbar() {
       </div>
       <div className="d-flex justify-content-end ">
         <div className="justify-content-between">
-          {cliente.clienteFetch.username ? (
+          {cliente?.clienteFetch?.username ? (
             <>
               <strong className="text-white">
-                Benvenuto {cliente.clienteFetch.username}
+                Benvenuto {cliente?.clienteFetch?.username}
               </strong>
 
               <NavDropdown.Item

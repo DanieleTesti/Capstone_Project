@@ -1,8 +1,9 @@
-import { ALL_USER, FETCH_CLIENTE } from "../ActionTypes/clienteAction";
+import { ALL_USER, CLIENTE, FETCH_CLIENTE } from "../ActionTypes/clienteAction";
 
 const initialState = {
   clienteFetch: {},
   allUsers: [],
+  cliente: {},
 };
 
 const clienteReducer = (state = initialState, action) => {
@@ -11,6 +12,11 @@ const clienteReducer = (state = initialState, action) => {
       return {
         ...state,
         clienteFetch: action.payload,
+      };
+    case CLIENTE:
+      return {
+        ...state,
+        cliente: action.payload,
       };
 
     case ALL_USER:

@@ -3,12 +3,16 @@ import useAuth from "../hooks/useAuth";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import axios from "../api/axios";
-import { ALL_USER, FETCH_CLIENTE } from "../Redux/ActionTypes/clienteAction";
-import { useDispatch } from "react-redux";
+import { FETCH_CLIENTE } from "../Redux/ActionTypes/clienteAction";
+import { useDispatch, useSelector } from "react-redux";
 const LOGIN_URL = "/api/auth/login";
 
 const Login = () => {
   const { setAuth } = useAuth();
+
+  // const fetchAllClienti = useSelector((state) => state.AllUsers);
+  // const clienteFetchato = useSelector((state) => state.cliente);
+
   const [autenticato, setAutenticato] = useState(setAuth);
   const dispatch = useDispatch();
   const navigate = useNavigate();

@@ -10,9 +10,6 @@ import { Provider, useSelector } from "react-redux";
 import { store } from "./Redux/Store";
 
 function App() {
-  const clienteFetch = useSelector((state) => state.cliente.clienteFetch);
-  console.log(clienteFetch);
-
   return (
     <BrowserRouter>
       <GymNavbar />
