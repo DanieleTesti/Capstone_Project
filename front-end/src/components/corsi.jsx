@@ -10,19 +10,25 @@ import {
   addInsegnante,
   allInsegnanti,
 } from "../Redux/ActionTypes/insegnantiAction";
+import {
+  ADD_CORSO_TO_CLIENTE,
+  addCorsoToCliente,
+} from "../Redux/ActionTypes/clienteAction";
 
 const CorsiList = () => {
   const corsi = useSelector((state) => state.corsi.AllCorsi);
-  const utente = useSelector((state) => state.cliente?.cliente?.roles);
+  const utenteRole = useSelector((state) => state.cliente?.cliente?.roles);
+  const idUtente = useSelector((state) => state.cliente?.cliente?.id_cliente);
+  const iscrizione = useSelector((state) => state.cliente);
 
   const [error, setError] = useState(null);
 
-  //INSEGNANTE
+  // INSEGNANTE
   const [nome, setNome] = useState("");
   const [cognome, setCognome] = useState("");
 
-  //CORSI
-  const [descrizione_corso, setDescrizioneCorso] = useState("");
+  // CORSI
+  const [descrizione_Corso, setDescrizione_corso] = useState("");
   const [id_insegnante, setIdInsegnante] = useState("");
 
   const dispatch = useDispatch();
@@ -36,7 +42,7 @@ const CorsiList = () => {
   };
 
   const handledescrizioneCorsoChange = (event) => {
-    setDescrizioneCorso(event.target.value);
+    setDescrizione_corso(event.target.value);
   };
 
   const handleidInsegnanteChange = (event) => {
@@ -47,14 +53,14 @@ const CorsiList = () => {
     event.preventDefault();
 
     try {
-      const data = await addCorso({ id_insegnante, descrizione_corso });
+      const data = await addCorso(id_insegnante, descrizione_Corso);
       console.log(data);
     } catch (error) {
       console.log(error);
       setError("Si è verificato un errore durante l'aggiunta del corso");
     }
     setIdInsegnante("");
-    setDescrizioneCorso("");
+    setDescrizione_corso("");
   };
 
   const handleSubmitInsegnante = async (event) => {
@@ -84,8 +90,34 @@ const CorsiList = () => {
         setError("Si è verificato un errore durante il recupero dei corsi");
       }
     })();
-    console.log(utente.map((role) => role.roleName));
+    // console.log(utente.map((role) => role.roleName));
   }, []);
+
+  const handleSubmitCorsoToCliente = async (idCorso) => {
+    const data = await addCorsoToCliente(idUtente, idCorso);
+    console.log(data);
+    dispatch({
+      type: ADD_CORSO_TO_CLIENTE,
+      payload: data,
+    });
+  };
+
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const data = await addCorsoToCliente(idCliente, idCorso);
+  //       console.log(data);
+  //       dispatch({
+  //         type: ADD_CORSO_TO_CLIENTE,
+  //         payload: data,
+  //       });
+  //     } catch (error) {
+  //       console.log(error);
+  //       setError("Si è verificato un errore durante il recupero dei corsi");
+  //     }
+  //   })();
+  //   // console.log(utente.map((role) => role.roleName));
+  // }, []);
 
   useEffect(() => {
     (async () => {
@@ -103,27 +135,26 @@ const CorsiList = () => {
         );
       }
     })();
-    console.log(utente.map((role) => role.roleName));
   }, []);
 
   return (
     <div>
       <h2>Lista dei Corsi</h2>
-      {error ? (
-        <p>{error}</p>
-      ) : (
-        <ul>
-          {corsi?.map((corso) => (
-            <li key={corso.corso}>
-              {corso.descrizione_Corso}. Insegnante: {corso.insegnante.nome}{" "}
-              {corso.insegnante.cognome}
-            </li>
-          ))}
-        </ul>
-      )}
-      {utente.map((role) =>
+      {utenteRole.map((role) =>
         role.roleName === "ROLE_ADMIN" ? (
           <>
+            {" "}
+            <ul>
+              {corsi?.map((corso) => (
+                <div>
+                  {/* div className="d-flex" */}
+                  <li key={corso?.corso}>
+                    {corso?.descrizione_Corso}. Insegnante:{" "}
+                    {corso?.insegnante?.nome} {corso?.insegnante?.cognome}
+                  </li>
+                </div>
+              ))}
+            </ul>
             <form onSubmit={handleSubmitInsegnante}>
               <label>
                 Nome:
@@ -149,7 +180,7 @@ const CorsiList = () => {
                 <input
                   type="text"
                   id="descrizioneCorso"
-                  value={descrizione_corso}
+                  value={descrizione_Corso}
                   onChange={handledescrizioneCorsoChange}
                   required
                 />
@@ -173,8 +204,27 @@ const CorsiList = () => {
           </>
         ) : (
           <>
-            <p>ERRORE</p>
-            <p>{role.roleName}</p>
+            <ul>
+              {corsi?.map((corso) => (
+                <div>
+                  {/* div className="d-flex" */}
+                  <li key={corso?.corso}>
+                    {corso?.descrizione_Corso}. Insegnante:{" "}
+                    {corso?.insegnante?.nome} {corso?.insegnante?.cognome}
+                  </li>
+                  {/* <button
+                    onClick={() => handleSubmitCorsoToCliente(corso?.corso)}
+                  >
+                    +
+                  </button> */}
+                </div>
+              ))}
+            </ul>
+            <h2>Buongiorno {utenteRole?.map((role) => role.roleName)}</h2>
+            <h4>
+              Hai la possibilità di iscriverti a tutti i corsi che si trovano
+              nella sezione sopra solamente premendo il tasto +
+            </h4>
           </>
         )
       )}

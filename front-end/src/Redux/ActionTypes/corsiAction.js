@@ -42,7 +42,7 @@ export const findCorsoById = async (idCorso) => {
   }
 };
 
-export const addCorso = async (id_insegnante, descrizione_corso) => {
+export const addCorso = async (id_insegnante, descrizione_Corso) => {
   try {
     const response = await fetch(
       `http://localhost:8081/api/corso/add/${id_insegnante}`,
@@ -53,13 +53,13 @@ export const addCorso = async (id_insegnante, descrizione_corso) => {
           Authorization:
             "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJnZXN0b3JlLnBzQG1haWwuY29tIiwiaWF0IjoxNjg0MTc5NzM3LCJleHAiOjE2ODQ3ODQ1Mzd9.0JzxBy_6AlZb21WNz_uPdr3lVPxajM5utXSVJVNQDujIDfIpHy0u_lervNnFr2Cl",
         },
-        body: JSON.stringify({ descrizione_corso: descrizione_corso }),
+        body: JSON.stringify({ descrizione_Corso: descrizione_Corso }),
       }
     );
 
     if (response.ok) {
       const corsoCreato = await response.json();
-      console.log("Corso creato:", corsoCreato);
+      console.log("Descrizione corso creato:", corsoCreato);
     } else {
       console.log("Errore durante la creazione del corso:", response.status);
     }

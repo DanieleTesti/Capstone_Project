@@ -6,8 +6,8 @@ import {
 
 const initialState = {
   AllCorsi: [],
-  findCorsoById: [],
-  addCorso: [],
+  findCorsoById: {},
+  addCorso: {},
 };
 
 const corsiReducer = (state = initialState, action) => {

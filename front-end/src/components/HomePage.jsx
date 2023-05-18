@@ -31,7 +31,7 @@ function HomePage() {
         type: CLIENTE,
         payload: data,
       });
-      const roleCliente = data.roles.map((role) => role.roleName);
+      const roleCliente = data?.roles?.map((role) => role?.roleName);
       // console.log(roleCliente.map((role) => role.roleName));
       // console.log(roleCliente);
     })();
