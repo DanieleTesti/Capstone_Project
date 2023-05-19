@@ -12,7 +12,7 @@ const reducers = combineReducers({
 // export default reducers;
 
 const persistConfig = {
-  key: "new-project",
+  key: "capstone",
   storage,
 };
 
@@ -22,6 +22,7 @@ export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
+      immutableCheck: false,
       serializableCheck: false,
     }),
 });

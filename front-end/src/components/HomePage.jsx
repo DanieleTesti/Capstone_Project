@@ -8,6 +8,11 @@ import {
 } from "../Redux/ActionTypes/clienteAction";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { CORSI_ALL, fetchCorsi } from "../Redux/ActionTypes/corsiAction";
+import {
+  ALL_INSEGNANTI,
+  allInsegnanti,
+} from "../Redux/ActionTypes/insegnantiAction";
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -34,6 +39,25 @@ function HomePage() {
       const roleCliente = data?.roles?.map((role) => role?.roleName);
       // console.log(roleCliente.map((role) => role.roleName));
       // console.log(roleCliente);
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      const data = await fetchCorsi();
+      console.log(data);
+      dispatch({
+        type: CORSI_ALL,
+        payload: data,
+      });
+    })();
+    (async () => {
+      const data = await allInsegnanti();
+      console.log(data);
+      dispatch({
+        type: ALL_INSEGNANTI,
+        payload: data,
+      });
     })();
   }, []);
 

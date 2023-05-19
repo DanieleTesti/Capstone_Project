@@ -1,38 +1,22 @@
-import {
-  ADD_CORSO,
-  CORSI_ALL,
-  FIND_CORSO_BY_ID,
-} from "../ActionTypes/corsiAction";
+import { CORSI_ALL } from "../ActionTypes/corsiAction";
 
 const initialState = {
-  AllCorsi: [],
   findCorsoById: {},
   addCorso: {},
+  AllCorsi: [], // Inizialmente vuoto
 };
 
-const corsiReducer = (state = initialState, action) => {
+const corsiReducers = (state = initialState, action) => {
   switch (action.type) {
     case CORSI_ALL:
       return {
         ...state,
-        AllCorsi: action.payload,
+        AllCorsi: action.payload, // Assegna i dati dei corsi a AllCorsi
       };
-
-    case FIND_CORSO_BY_ID:
-      return {
-        ...state,
-        findCorsoById: action.payload,
-      };
-
-    case ADD_CORSO:
-      return {
-        ...state,
-        addCorso: action.payload,
-      };
-
+    // Altri casi di gestione delle azioni
     default:
       return state;
   }
 };
 
-export default corsiReducer;
+export default corsiReducers;
