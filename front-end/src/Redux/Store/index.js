@@ -3,10 +3,14 @@ import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import clienteReducer from "../Reducers/clienteReducers";
 import corsiReducer from "../Reducers/corsiReducers";
+import insegnantiReducer from "../Reducers/insegnanteReducers";
+import abbonamentoReducer from "../Reducers/abbonamentoReducers";
 
 const reducers = combineReducers({
   cliente: clienteReducer,
   corsi: corsiReducer,
+  insegnante: insegnantiReducer,
+  abbonamento: abbonamentoReducer,
 });
 
 // export default reducers;

@@ -19,7 +19,6 @@ function HomePage() {
   const usernameCliente = useSelector(
     (state) => state.cliente?.clienteFetch?.username
   );
-  // const [error, setError] = useState("");
 
   useEffect(() => {
     (async () => {
@@ -36,6 +35,7 @@ function HomePage() {
         type: CLIENTE,
         payload: data,
       });
+
       const roleCliente = data?.roles?.map((role) => role?.roleName);
       // console.log(roleCliente.map((role) => role.roleName));
       // console.log(roleCliente);

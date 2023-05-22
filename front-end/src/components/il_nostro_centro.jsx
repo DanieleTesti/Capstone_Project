@@ -1,5 +1,4 @@
 import React from "react";
-import "../Scss/style.css";
 
 function GymInfo() {
   return (

@@ -3,7 +3,6 @@ import boxe from "../img/boxe.jpg";
 import pesi from "../img/pesi.jpg";
 import sala from "../img/sala.jpg";
 import Carousel from "react-bootstrap/Carousel";
-import "../Scss/style.css";
 
 function IndividualIntervalsExample() {
   return (

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import "../Scss/style.css";
+import "../style/navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { ALL_USER, FETCH_CLIENTE } from "../Redux/ActionTypes/clienteAction";
 
 function GymNavbar() {
   const cliente = useSelector((state) => state.cliente);
+  const utenteRole = useSelector((state) => state.cliente?.cliente?.roles);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -42,9 +43,17 @@ function GymNavbar() {
           <Link to={"/corsi"} className="nav-link">
             Corsi
           </Link>
-          <Link to={"#"} className="nav-link">
-            Contatti
-          </Link>
+          {utenteRole?.map((role) =>
+            role?.roleName === "ROLE_ADMIN" ? (
+              <Link to={"/clienti"} className="nav-link">
+                Clienti
+              </Link>
+            ) : (
+              <Link to={"/area-personale"} className="nav-link">
+                Area Personale
+              </Link>
+            )
+          )}
         </div>
       </div>
       <div className="d-flex justify-content-end ">
