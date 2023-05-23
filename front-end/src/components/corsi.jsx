@@ -16,21 +16,11 @@ import {
   addCorsoToCliente,
   fetchCliente,
 } from "../Redux/ActionTypes/clienteAction";
-import Modal from "react-modal";
 import "../style/corsi.css";
 import {
   FIND_ABB_BY_ID,
   findAbbById,
 } from "../Redux/ActionTypes/abbonamentoAction";
-import { Toast } from "bootstrap";
-
-const Alert = ({ title, message, onClose }) => (
-  <div className="alert-container">
-    <h2>{title}</h2>
-    <p>{message}</p>
-    <button onClick={onClose}>Chiudi</button>
-  </div>
-);
 
 const CorsiList = () => {
   const corsi = useSelector((state) => state.corsi.AllCorsi);
@@ -45,7 +35,6 @@ const CorsiList = () => {
     (state) => state.abbonamento?.clienteAbb?.fine_abbonamento
   );
 
-  const [error, setError] = useState(null);
   const [reloadPage, setReloadPage] = useState(false);
 
   // INSEGNANTE
@@ -56,24 +45,7 @@ const CorsiList = () => {
   const [descrizione_Corso, setDescrizione_corso] = useState("");
   const [id_insegnante, setIdInsegnante] = useState("");
 
-  // ALERT
-  const [showAlert, setShowAlert] = useState(false);
-  const [alertTitle, setAlertTitle] = useState("");
-  const [alertMessage, setAlertMessage] = useState("");
-
   const dispatch = useDispatch();
-
-  const handleShowAlert = (title, message) => {
-    setAlertTitle(title);
-    setAlertMessage(message);
-    setShowAlert(true);
-  };
-
-  const handleCloseAlert = () => {
-    setShowAlert(false);
-    setAlertTitle("");
-    setAlertMessage("");
-  };
 
   const handleNomeChange = (event) => {
     setNome(event.target.value);
@@ -94,28 +66,29 @@ const CorsiList = () => {
   const handleSubmitCorso = async (event) => {
     event.preventDefault();
 
-    // Verifica se l'id dell'insegnante è già assegnato a un corso
     const isInsegnantePresente = corsi.some(
       (corso) => corso.insegnante.id_insegnante.toString() === id_insegnante
     );
 
     if (isInsegnantePresente) {
-      handleShowAlert("ERRORE", "L'insegnante è già assegnato a un corso");
+      alert(
+        "!! ERRORE !! L'insegnante è già assegnato a un corso. Crea un altro insegnante o assegnane uno nuovo"
+      );
     } else {
       const data = await addCorso(id_insegnante, descrizione_Corso);
       console.log(data);
       setIdInsegnante("");
       setDescrizione_corso("");
       setReloadPage(true);
-      handleShowAlert("Corso Creato", "Il corso è stato creato con successo");
+      alert("Il corso è stato creato con successo");
     }
   };
 
   const handleSubmitInsegnante = async (event) => {
     event.preventDefault();
-
     const data = await addInsegnante({ nome, cognome });
     console.log(data);
+    alert("Insegnante creato con nome : " + nome + " e cognome : " + cognome);
   };
 
   const handleSubmitCorsoToCliente = async (idCorso) => {
@@ -123,30 +96,28 @@ const CorsiList = () => {
       (corso) => corso.corso === idCorso
     );
     if (corsoEsistente) {
-      handleShowAlert(
-        "Cliente già iscritto",
-        "Il cliente è già iscritto a questo corso."
-      );
+      alert("Il cliente è già iscritto a questo corso.");
       return;
+    } else {
+      alert(
+        "Il cliente " +
+          cliente?.username +
+          " è stato iscritto al corso con id" +
+          idCorso
+      );
     }
 
     if (fine_abb && new Date(fine_abb) < new Date()) {
-      handleShowAlert(
-        "Abbonamento scaduto",
-        "Il tuo abbonamento è scaduto. Non puoi iscriverti a nuovi corsi."
-      );
+      alert("Il tuo abbonamento è scaduto. Non puoi iscriverti a nuovi corsi.");
       return;
     }
 
-    // Aggiungi il corso alla lista dei corsi del cliente
     const data = await addCorsoToCliente(idUtente, idCorso);
     console.log(data);
     dispatch({
       type: ADD_CORSO_TO_CLIENTE,
       payload: data,
     });
-
-    // Aggiorna lo stato del cliente dopo l'aggiunta del corso
     let data2 = await fetchCliente(usernameCliente);
     console.log(data2);
     dispatch({
@@ -178,13 +149,12 @@ const CorsiList = () => {
         type: FIND_ABB_BY_ID,
         payload: data,
       });
-      // console.log(data);
     })();
   }, []);
 
   useEffect(() => {
     if (reloadPage) {
-      window.location.reload(); // Ricarica la pagina
+      window.location.reload();
     }
   }, [reloadPage]);
 
@@ -199,8 +169,7 @@ const CorsiList = () => {
             ) : (
               <ul>
                 {corsi?.map((corso) => (
-                  <div key={corso?.corso}>
-                    {/* div className="d-flex" */}
+                  <div key={corso?.corso} className="d-flex">
                     <li>
                       {corso?.descrizione_Corso}. Insegnante:{" "}
                       {corso?.insegnante?.nome} {corso?.insegnante?.cognome}
@@ -259,16 +228,8 @@ const CorsiList = () => {
                   required
                   className="form-input"
                 />
-
                 <br />
-
-                <button
-                  type="submit"
-                  // disabled={corsi.map(
-                  //   (corso) => corso.insegnante.id_insegnante === id_insegnante
-                  // )}
-                  className="form-button"
-                >
+                <button type="submit" className="form-button">
                   Crea Corso
                 </button>
               </form>
@@ -298,7 +259,6 @@ const CorsiList = () => {
                       +
                     </button>
                   ) : (
-                    // Disabilita il pulsante se l'abbonamento è scaduto
                     <button
                       onClick={() => handleSubmitCorsoToCliente(corso?.corso)}
                     >
@@ -317,19 +277,6 @@ const CorsiList = () => {
           </>
         )
       )}
-
-      {/* <Modal isOpen={showPopup} onRequestClose={closePopup}>
-        <h2>ERRORE</h2>
-        <p>
-          C'è stato un errore nella creazione del corso. Se l'errore persiste
-          contatta l'assistenza
-        </p>
-      </Modal> */}
-      <Modal isOpen={showAlert} onRequestClose={handleCloseAlert}>
-        <h2>{alertTitle}</h2>
-        <p>{alertMessage}</p>
-        <button onClick={handleCloseAlert}>Chiudi</button>
-      </Modal>
     </div>
   );
 };

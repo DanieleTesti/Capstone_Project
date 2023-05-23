@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, NavDropdown } from "react-bootstrap";
 import "../style/navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { ALL_USER, FETCH_CLIENTE } from "../Redux/ActionTypes/clienteAction";
+import { FETCH_CLIENTE } from "../Redux/ActionTypes/clienteAction";
+import "../style/navbar.css";
 
 function GymNavbar() {
   const cliente = useSelector((state) => state.cliente);
@@ -45,11 +46,11 @@ function GymNavbar() {
           </Link>
           {utenteRole?.map((role) =>
             role?.roleName === "ROLE_ADMIN" ? (
-              <Link to={"/clienti"} className="nav-link">
+              <Link to="/clienti" className="nav-link">
                 Clienti
               </Link>
             ) : (
-              <Link to={"/area-personale"} className="nav-link">
+              <Link to="#" className="nav-link">
                 Area Personale
               </Link>
             )

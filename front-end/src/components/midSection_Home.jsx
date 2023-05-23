@@ -4,6 +4,7 @@ import yoga from "../img/yoga.webp";
 import karate from "../img/karate.webp";
 import nuoto from "../img/nuoto.jpeg";
 import { Link } from "react-router-dom";
+import "../style/midSection.css";
 
 function PromotionsSection() {
   return (
@@ -45,7 +46,6 @@ function CoursesSection() {
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
-                  {/* <Button variant="primary">Scopri di più</Button> */}
                 </div>
               </Link>
             </Col>
@@ -70,7 +70,6 @@ function CoursesSection() {
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
-                  {/* <Button variant="primary">Scopri di più</Button> */}
                 </div>
               </Link>
             </Col>
@@ -95,7 +94,6 @@ function CoursesSection() {
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
-                  {/* <Button variant="primary">Scopri di più</Button> */}
                 </div>
               </Link>
             </Col>
@@ -106,12 +104,28 @@ function CoursesSection() {
   );
 }
 
+function SecondSection() {
+  return (
+    <>
+      <div style={{ backgroundColor: "red" }} className="d-flex ">
+        ciao
+        <div style={{ backgroundColor: "blue" }}>diocane</div>
+        <div style={{ backgroundColor: "green" }}>dio</div>
+        <div style={{ backgroundColor: "blue" }}>CIAO</div>
+        <div style={{ backgroundColor: "black" }}>CIAO</div>
+      </div>
+    </>
+  );
+}
+
 function GymPage() {
   return (
     <>
       <PromotionsSection />
       <br />
       <CoursesSection />
+      <br />
+      <SecondSection />
     </>
   );
 }

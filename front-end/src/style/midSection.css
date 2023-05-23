@@ -1,0 +1,35 @@
+.second-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.course-item {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.course-image {
+  flex-basis: 50%;
+}
+
+.course-image img {
+  width: 100%;
+  height: auto;
+}
+
+.course-description {
+  flex-basis: 50%;
+  padding: 0 20px;
+}
+
+.course-description h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.course-description p {
+  font-size: 16px;
+  line-height: 1.5;
+}

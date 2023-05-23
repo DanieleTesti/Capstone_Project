@@ -5,9 +5,10 @@ import Login from "./components/Login";
 import GymInfo from "./components/il_nostro_centro";
 import GymNavbar from "./components/navbar";
 import CorsiList from "./components/corsi";
-import { Provider, useSelector } from "react-redux";
+import { Provider } from "react-redux";
 import { store } from "./Redux/Store";
 import ClientiList from "./components/allClienti";
+import Footer from "./components/footer";
 
 function App() {
   return (
@@ -19,8 +20,9 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path="centro" element={<GymInfo />} />
         <Route path="corsi" element={<CorsiList />} />
-        <Route path="/clienti" element={<ClientiList />} />
+        <Route path="clienti" element={<ClientiList />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

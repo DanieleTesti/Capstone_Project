@@ -1,0 +1,73 @@
+/* Aggiungi queste classi CSS ai tuoi file o al tuo foglio di stile */
+
+.footer {
+  background-color: #00c545;
+  padding: 40px 0;
+}
+
+.footer__top {
+  margin-bottom: 40px;
+}
+
+.footer__title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.footer__address {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.footer__opening-hours {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.footer__social-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__social-links li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer__social-links li:last-child {
+  margin-right: 0;
+}
+
+.footer__social-links a {
+  color: #333;
+  font-size: 20px;
+}
+
+.footer__copy {
+  font-size: 14px;
+}
+
+.footer__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__links li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer__links li:last-child {
+  margin-right: 0;
+}
+
+.footer__links a {
+  color: #666;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+/* Aggiungi ulteriori stili CSS personalizzati in base alle tue esigenze */
