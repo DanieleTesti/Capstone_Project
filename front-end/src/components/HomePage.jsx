@@ -19,6 +19,9 @@ function HomePage() {
   const usernameCliente = useSelector(
     (state) => state.cliente?.clienteFetch?.username
   );
+  const gestoreToken = useSelector(
+    (state) => state.cliente?.clienteFetch?.accessToken
+  );
 
   useEffect(() => {
     (async () => {
@@ -29,22 +32,18 @@ function HomePage() {
       });
     })();
     (async () => {
-      let data = await fetchCliente(usernameCliente);
+      let data = await fetchCliente(usernameCliente, gestoreToken);
       console.log(data);
       dispatch({
         type: CLIENTE,
         payload: data,
       });
-
-      const roleCliente = data?.roles?.map((role) => role?.roleName);
-      // console.log(roleCliente.map((role) => role.roleName));
-      // console.log(roleCliente);
     })();
   }, []);
 
   useEffect(() => {
     (async () => {
-      const data = await fetchCorsi();
+      const data = await fetchCorsi(gestoreToken);
       console.log(data);
       dispatch({
         type: CORSI_ALL,
@@ -52,7 +51,7 @@ function HomePage() {
       });
     })();
     (async () => {
-      const data = await allInsegnanti();
+      const data = await allInsegnanti(gestoreToken);
       console.log(data);
       dispatch({
         type: ALL_INSEGNANTI,

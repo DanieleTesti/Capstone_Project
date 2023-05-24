@@ -1,13 +1,12 @@
 export const ALL_ABBONAMENTI = "ALL_ABBONAMENTI";
 export const FIND_ABB_BY_ID = "FIND_ABB_BY_ID";
 
-export const allAbbonamenti = async () => {
+export const allAbbonamenti = async (gestoreToken) => {
   try {
     let res = await fetch(`http://localhost:8081/api/abbonamento/all`, {
       method: "GET",
       headers: {
-        Authorization:
-          "BearereyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJnZXN0b3JlLnBzQG1haWwuY29tIiwiaWF0IjoxNjg0ODI4NDcwLCJleHAiOjE2ODU0MzMyNzB9.jDWfGZSgoJpFvroHsnXbjzerC3wTW9YDwxKY3vBe4dABqFxFXRnW0jKcXKabGzBQ",
+        Authorization: `Bearer ${gestoreToken}`,
       },
     });
     if (res.ok) {
@@ -21,15 +20,14 @@ export const allAbbonamenti = async () => {
   }
 };
 
-export const findAbbById = async (endpoint) => {
+export const findAbbById = async (endpoint, gestoreToken) => {
   try {
     let res = await fetch(
       `http://localhost:8081/api/abbonamento/cliente/${endpoint}`,
       {
         method: "GET",
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJnZXN0b3JlLnBzQG1haWwuY29tIiwiaWF0IjoxNjg0ODI4NDcwLCJleHAiOjE2ODU0MzMyNzB9.jDWfGZSgoJpFvroHsnXbjzerC3wTW9YDwxKY3vBe4dABqFxFXRnW0jKcXKabGzBQ",
+          Authorization: `Bearer ${gestoreToken}`,
         },
       }
     );
@@ -37,8 +35,6 @@ export const findAbbById = async (endpoint) => {
       let data = await res.json();
       console.log(data);
       return data;
-    } else {
-      console.log("error");
     }
   } catch (error) {
     console.log(error);

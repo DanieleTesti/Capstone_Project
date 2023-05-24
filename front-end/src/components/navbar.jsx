@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Navbar, NavDropdown } from "react-bootstrap";
 import "../style/navbar.css";
 import { Link, useNavigate } from "react-router-dom";

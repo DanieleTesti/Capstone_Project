@@ -5,6 +5,9 @@ import karate from "../img/karate.webp";
 import nuoto from "../img/nuoto.jpeg";
 import { Link } from "react-router-dom";
 import "../style/midSection.css";
+import sportAcquatici from "../img/acqua.jpg";
+import fitness from "../img/fitnes.jpg";
+import arti_marziali from "../img/arti_maziali.jpg";
 
 function PromotionsSection() {
   return (
@@ -107,12 +110,60 @@ function CoursesSection() {
 function SecondSection() {
   return (
     <>
-      <div style={{ backgroundColor: "red" }} className="d-flex ">
-        ciao
-        <div style={{ backgroundColor: "blue" }}>diocane</div>
-        <div style={{ backgroundColor: "green" }}>dio</div>
-        <div style={{ backgroundColor: "blue" }}>CIAO</div>
-        <div style={{ backgroundColor: "black" }}>CIAO</div>
+      <div style={{}}>
+        <div className="d-flex p-5 sport_vari">
+          <div style={{ width: "50%" }}>
+            <Image src={sportAcquatici} alt="sportAcquatici" fluid />
+          </div>
+          <div className="px-5" style={{ width: "50%" }}>
+            <h1 style={{ position: "absolute", paddingTop: "3rem" }}>
+              SPORT ACQUATICI
+            </h1>
+            <h1 style={{ color: "lightgray", fontSize: "150px" }}>01</h1>
+            <p>
+              Due Piscine interne ed una esterna. La principale, 6 corsie x 25
+              mt., dedicata al nuoto libero e all'acquagym, ospita anche
+              attività di scuola nuoto e di pallanuoto agonistica. La seconda,
+              più piccola, è dedicata ad attività di fitness in acqua più
+              specifiche e alla scuola nuoto per i più piccini. La piscina
+              esterna è attiva nel periodo estivo per il relax e l'attività di
+              adulti e bambini.
+            </p>
+            <button>Scopri di più | ➡️</button>
+          </div>
+        </div>
+        <div className="d-flex p-5 sport_vari">
+          <div className="px-5" style={{ width: "50%" }}>
+            <h1 style={{ position: "absolute", paddingTop: "3rem" }}>
+              FITNESS
+            </h1>
+            <h1 style={{ color: "lightgray", fontSize: "150px" }}>02</h1>
+            <p>
+              Una sala pesi completa di tutte le attrezzature per il tuo
+              allenamento e quattro sale dove svolgere tutte le lezioni di
+              fitness insieme ai migliori insegnanti.
+            </p>
+            <button>Scopri di più | ➡️</button>
+          </div>
+          <div style={{ width: "50%" }}>
+            <Image src={fitness} alt="fitness" fluid />
+          </div>
+        </div>
+        <div className="d-flex">
+          <div className="d-flex p-5 sport_vari">
+            <div style={{ width: "50%" }}>
+              <Image src={arti_marziali} alt="arti_marziali" fluid />
+            </div>
+            <div className="px-5" style={{ width: "50%" }}>
+              <h1 style={{ position: "absolute", paddingTop: "3rem" }}>
+                ARTI MARZIALI
+              </h1>
+              <h1 style={{ color: "lightgray", fontSize: "150px" }}>03</h1>
+              <p>Karate e Kick Boxing per adulti e bambini.</p>
+              <button>Scopri di più | ➡️</button>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

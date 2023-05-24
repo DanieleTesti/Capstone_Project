@@ -30,6 +30,9 @@ const CorsiList = () => {
   const usernameCliente = useSelector(
     (state) => state.cliente?.clienteFetch?.username
   );
+  const gestoreToken = useSelector(
+    (state) => state.cliente?.clienteFetch?.accessToken
+  );
   const id_cliente = useSelector((state) => state.cliente?.cliente?.id_cliente);
   const fine_abb = useSelector(
     (state) => state.abbonamento?.clienteAbb?.fine_abbonamento
@@ -75,7 +78,11 @@ const CorsiList = () => {
         "!! ERRORE !! L'insegnante è già assegnato a un corso. Crea un altro insegnante o assegnane uno nuovo"
       );
     } else {
-      const data = await addCorso(id_insegnante, descrizione_Corso);
+      const data = await addCorso(
+        id_insegnante,
+        descrizione_Corso,
+        gestoreToken
+      );
       console.log(data);
       setIdInsegnante("");
       setDescrizione_corso("");
@@ -86,7 +93,7 @@ const CorsiList = () => {
 
   const handleSubmitInsegnante = async (event) => {
     event.preventDefault();
-    const data = await addInsegnante({ nome, cognome });
+    const data = await addInsegnante({ nome, cognome }, gestoreToken);
     console.log(data);
     alert("Insegnante creato con nome : " + nome + " e cognome : " + cognome);
   };
@@ -102,7 +109,7 @@ const CorsiList = () => {
       alert(
         "Il cliente " +
           cliente?.username +
-          " è stato iscritto al corso con id" +
+          " è stato iscritto al corso con id " +
           idCorso
       );
     }
@@ -112,13 +119,14 @@ const CorsiList = () => {
       return;
     }
 
-    const data = await addCorsoToCliente(idUtente, idCorso);
+    const data = await addCorsoToCliente(idUtente, idCorso, gestoreToken);
     console.log(data);
     dispatch({
       type: ADD_CORSO_TO_CLIENTE,
       payload: data,
     });
-    let data2 = await fetchCliente(usernameCliente);
+
+    let data2 = await fetchCliente(usernameCliente, gestoreToken);
     console.log(data2);
     dispatch({
       type: CLIENTE,
@@ -128,7 +136,8 @@ const CorsiList = () => {
 
   useEffect(() => {
     (async () => {
-      const data = await fetchCorsi();
+      console.log(gestoreToken);
+      const data = await fetchCorsi(gestoreToken);
       console.log(data);
       dispatch({
         type: CORSI_ALL,
@@ -136,7 +145,7 @@ const CorsiList = () => {
       });
     })();
     (async () => {
-      const data = await allInsegnanti();
+      const data = await allInsegnanti(gestoreToken);
       console.log(data);
       dispatch({
         type: ALL_INSEGNANTI,
@@ -144,7 +153,7 @@ const CorsiList = () => {
       });
     })();
     (async () => {
-      let data = await findAbbById(id_cliente);
+      let data = await findAbbById(id_cliente, gestoreToken);
       dispatch({
         type: FIND_ABB_BY_ID,
         payload: data,
