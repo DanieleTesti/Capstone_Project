@@ -29,31 +29,11 @@ function Footer() {
                 Domenica: Chiuso
               </p>
             </div>
-            <div className="col-md-4">
-              <h3 className="footer__title">Seguici</h3>
-              <ul className="footer__social-links">
-                <li>
-                  <a href="#" target="_blank" rel="noopener noreferrer">
-                    <i className="fab fa-facebook"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_blank" rel="noopener noreferrer">
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_blank" rel="noopener noreferrer">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
       <div className="footer__bottom">
-        <div className="container">
+        <div className="container-footer">
           <div className="row">
             <div className="col-md-6">
               <p className="footer__copy">

@@ -38,3 +38,11 @@
   display: flex;
   align-items: center;
 }
+
+button {
+  background-color: #59b999 !important;
+}
+
+.collegamenti:hover {
+  color: white;
+}

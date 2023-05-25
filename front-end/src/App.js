@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import { store } from "./Redux/Store";
 import ClientiList from "./components/allClienti";
 import Footer from "./components/footer";
+import CorsiPage from "./components/allCorsi";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="centro" element={<GymInfo />} />
         <Route path="corsi" element={<CorsiList />} />
         <Route path="clienti" element={<ClientiList />} />
+        <Route path="corsiPage" element={<CorsiPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -29,7 +29,7 @@ function CoursesSection() {
           <h2>I nostri corsi</h2>
           <Row>
             <Col style={{ position: "relative", padding: "0px" }} md={4}>
-              <Link to="/centro">
+              <Link to="/centro" className="collegamenti">
                 <Image
                   src={yoga}
                   alt="yoga Image 1"
@@ -53,7 +53,7 @@ function CoursesSection() {
               </Link>
             </Col>
             <Col md={4} style={{ position: "relative", padding: "0px" }}>
-              <Link to="/centro">
+              <Link to="/centro" className="collegamenti">
                 <Image
                   src={karate}
                   alt="karate Image 2"
@@ -77,7 +77,7 @@ function CoursesSection() {
               </Link>
             </Col>
             <Col style={{ position: "relative", padding: "0px" }} md={4}>
-              <Link to="/centro">
+              <Link to="/centro" className="collegamenti">
                 <Image
                   src={nuoto}
                   alt="nuoto Image 3"
@@ -129,7 +129,9 @@ function SecondSection() {
               esterna è attiva nel periodo estivo per il relax e l'attività di
               adulti e bambini.
             </p>
-            <button>Scopri di più | ➡️</button>
+            <Link to="/corsiPage">
+              <button>Scopri di più | ➡️</button>
+            </Link>
           </div>
         </div>
         <div className="d-flex p-5 sport_vari">
@@ -143,7 +145,9 @@ function SecondSection() {
               allenamento e quattro sale dove svolgere tutte le lezioni di
               fitness insieme ai migliori insegnanti.
             </p>
-            <button>Scopri di più | ➡️</button>
+            <Link to="/corsiPage">
+              <button>Scopri di più | ➡️</button>
+            </Link>
           </div>
           <div style={{ width: "50%" }}>
             <Image src={fitness} alt="fitness" fluid />
@@ -160,7 +164,9 @@ function SecondSection() {
               </h1>
               <h1 style={{ color: "lightgray", fontSize: "150px" }}>03</h1>
               <p>Karate e Kick Boxing per adulti e bambini.</p>
-              <button>Scopri di più | ➡️</button>
+              <Link to="/corsiPage">
+                <button>Scopri di più | ➡️</button>
+              </Link>
             </div>
           </div>
         </div>

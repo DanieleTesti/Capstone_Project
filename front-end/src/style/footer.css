@@ -1,8 +1,10 @@
-/* Aggiungi queste classi CSS ai tuoi file o al tuo foglio di stile */
-
 .footer {
-  background-color: #00c545;
+  background-color: #252525;
   padding: 40px 0;
+}
+
+.container-footer {
+  color: white;
 }
 
 .footer__top {
@@ -41,7 +43,7 @@
 }
 
 .footer__social-links a {
-  color: #333;
+  color: white;
   font-size: 20px;
 }
 
@@ -65,9 +67,7 @@
 }
 
 .footer__links a {
-  color: #666;
+  color: white;
   font-size: 14px;
   text-decoration: none;
 }
-
-/* Aggiungi ulteriori stili CSS personalizzati in base alle tue esigenze */

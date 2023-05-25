@@ -26,10 +26,6 @@
   text-decoration: none;
 }
 
-.gym-navbar .nav-link:hover {
-  color: #ffc107;
-}
-
 .first-section img {
   width: 100%;
   height: 800px !important;
@@ -123,7 +119,7 @@ button {
 }
 
 .valid {
-  color: limegreen;
+  color: #59b999;
   margin-left: 0.25rem;
 }
 
@@ -154,7 +150,7 @@ button {
 }
 
 .gym-navbar {
-  background-color: #00c545;
+  background-color: #59b999;
   color: #fff;
 }
 

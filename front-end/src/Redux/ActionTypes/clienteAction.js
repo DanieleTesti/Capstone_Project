@@ -30,7 +30,6 @@ export const allClienti = async (gestoreToken) => {
     let res = await fetch(`http://localhost:8081/api/cliente/all`, {
       method: "GET",
       headers: {
-        //statico funziona e dinamico no, lo stesso token
         Authorization: `Bearer ${gestoreToken}`,
       },
     });

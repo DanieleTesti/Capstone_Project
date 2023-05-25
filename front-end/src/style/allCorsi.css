@@ -1,0 +1,21 @@
+.sezioneLinesNero {
+  background-color: #29282d;
+  color: white;
+  padding-right: 0;
+  padding-left: 0;
+}
+.sezioneLinesVerde {
+  background-color: #59b999;
+  color: white;
+  padding-right: 0;
+  padding-left: 0;
+}
+.immagine {
+  width: 475px;
+  height: 475px;
+}
+
+.sectionSport {
+  width: 476px;
+  padding: 2rem;
+}
