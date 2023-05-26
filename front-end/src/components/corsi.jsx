@@ -136,9 +136,7 @@ const CorsiList = () => {
 
   useEffect(() => {
     (async () => {
-      console.log(gestoreToken);
       const data = await fetchCorsi(gestoreToken);
-      console.log(data);
       dispatch({
         type: CORSI_ALL,
         payload: data,
@@ -146,7 +144,6 @@ const CorsiList = () => {
     })();
     (async () => {
       const data = await allInsegnanti(gestoreToken);
-      console.log(data);
       dispatch({
         type: ALL_INSEGNANTI,
         payload: data,
@@ -178,8 +175,8 @@ const CorsiList = () => {
             ) : (
               <ul>
                 {corsi?.map((corso) => (
-                  <div key={corso?.corso} className="d-flex">
-                    <li>
+                  <div key={corso?.id}>
+                    <li key={corso?.id}>
                       {corso?.descrizione_Corso}. Insegnante:{" "}
                       {corso?.insegnante?.nome} {corso?.insegnante?.cognome}
                     </li>
@@ -248,8 +245,8 @@ const CorsiList = () => {
           <>
             <ul>
               {corsi?.map((corso) => (
-                <div key={corso?.corso}>
-                  <li>
+                <div key={corso?.id}>
+                  <li key={corso?.id}>
                     {corso?.descrizione_Corso}. Insegnante:{" "}
                     {corso?.insegnante?.nome} {corso?.insegnante?.cognome}
                   </li>
@@ -261,7 +258,7 @@ const CorsiList = () => {
                             "Non puoi iscriverti. L'abbonamento è scaduto. Passa in palestra per rinnovarlo!"
                           );
                         } else {
-                          handleSubmitCorsoToCliente(corso?.corso);
+                          handleSubmitCorsoToCliente(corso?.id);
                         }
                       }}
                     >
@@ -269,7 +266,7 @@ const CorsiList = () => {
                     </button>
                   ) : (
                     <button
-                      onClick={() => handleSubmitCorsoToCliente(corso?.corso)}
+                      onClick={() => handleSubmitCorsoToCliente(corso?.id)}
                     >
                       +
                     </button>

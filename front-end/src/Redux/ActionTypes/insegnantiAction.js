@@ -46,7 +46,6 @@ export const findInsegnanteById = async (endpoint, gestoreToken) => {
 };
 
 export const allInsegnanti = async (gestoreToken) => {
-  console.log(gestoreToken);
   try {
     let res = await fetch(`http://localhost:8081/api/insegnante/all`, {
       method: "GET",
@@ -57,8 +56,6 @@ export const allInsegnanti = async (gestoreToken) => {
     if (res.ok) {
       let data = await res.json();
       return data;
-    } else {
-      console.log("error");
     }
   } catch (error) {
     console.log(error);

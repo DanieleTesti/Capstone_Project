@@ -24,16 +24,15 @@ function HomePage() {
   );
 
   useEffect(() => {
-    (async () => {
-      let data = await allClienti();
-      dispatch({
-        type: ALL_USER,
-        payload: data,
-      });
-    })();
+    // (async () => {
+    //   let data = await allClienti();
+    //   dispatch({
+    //     type: ALL_USER,
+    //     payload: data,
+    //   });
+    // })();
     (async () => {
       let data = await fetchCliente(usernameCliente, gestoreToken);
-      console.log(data);
       dispatch({
         type: CLIENTE,
         payload: data,
@@ -44,7 +43,6 @@ function HomePage() {
   useEffect(() => {
     (async () => {
       const data = await fetchCorsi(gestoreToken);
-      console.log(data);
       dispatch({
         type: CORSI_ALL,
         payload: data,
@@ -52,7 +50,6 @@ function HomePage() {
     })();
     (async () => {
       const data = await allInsegnanti(gestoreToken);
-      console.log(data);
       dispatch({
         type: ALL_INSEGNANTI,
         payload: data,

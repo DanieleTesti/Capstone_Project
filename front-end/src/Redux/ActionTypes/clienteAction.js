@@ -57,8 +57,6 @@ export const addCorsoToCliente = async (idCliente, idCorso, gestoreToken) => {
       let data = await res.json();
       console.log(data);
       return data;
-    } else {
-      console.log("error");
     }
   } catch (error) {
     console.log(error);

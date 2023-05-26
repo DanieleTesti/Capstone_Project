@@ -5,9 +5,9 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer__top">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-4">
+        <div className="container-footer ">
+          <div className="row d-flex flex-row justify-content-around">
+            <div className="col-md-4 ">
               <h3 className="footer__title">Contatti</h3>
               <p className="footer__address">
                 Via Palestra, 123
@@ -34,8 +34,8 @@ function Footer() {
       </div>
       <div className="footer__bottom">
         <div className="container-footer">
-          <div className="row">
-            <div className="col-md-6">
+          <div className="row mx-5">
+            <div className="col-md-6 ">
               <p className="footer__copy">
                 &copy; 2023 Palestra. Tutti i diritti riservati.
               </p>
