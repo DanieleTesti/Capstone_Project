@@ -47,14 +47,20 @@ const ClientiList = () => {
 
   return (
     <div className="MyContainer">
-      <h2>Lista di clienti iscritti in palestra</h2>
-      <label htmlFor="course-select">Seleziona corso: </label>
+      <h1>Lista di clienti iscritti in palestra</h1>
+      <br />
+      <br />
+      <h4 htmlFor="course-select">
+        Seleziona corso per vedere chi è iscritto:{" "}
+      </h4>
+      <br />
       <select
         id="course-select"
         value={selectedCourse}
         onChange={handleCorsoChange}
       >
         <option value="">Tutti i corsi</option>
+        <br />
         {corsi?.map((corso) => (
           <option value={corso?.id} key={corso?.corso}>
             {corso?.descrizione_Corso}
@@ -67,20 +73,28 @@ const ClientiList = () => {
               cliente?.roles.some(
                 (ruolo) => ruolo?.roleName === "ROLE_ADMIN"
               ) ? null : (
-                <li key={cliente.id_cliente}>
-                  Username: {cliente?.username}, Mail: {cliente?.email}, Ruolo:{" "}
-                  {cliente?.roles.map((ruolo) => ruolo?.roleName)}
-                </li>
+                <>
+                  <br />
+                  <li key={cliente.id_cliente}>
+                    Id cliente: {cliente.id_cliente} , Username:{" "}
+                    {cliente?.username} , Mail: {cliente?.email} , Ruolo:{" "}
+                    {cliente?.roles.map((ruolo) => ruolo?.roleName)}
+                  </li>
+                </>
               )
             )
           : clienti?.allUsers?.map((cliente) =>
               cliente?.roles?.some(
                 (ruolo) => ruolo?.roleName === "ROLE_ADMIN"
               ) ? null : (
-                <li key={cliente.id_cliente}>
-                  Username: {cliente?.username}, Mail: {cliente?.email}, Ruolo:{" "}
-                  {cliente?.roles.map((ruolo) => ruolo?.roleName)}
-                </li>
+                <>
+                  <br />
+                  <li key={cliente.id_cliente}>
+                    Id cliente: {cliente.id_cliente} , Username:{" "}
+                    {cliente?.username} , Mail: {cliente?.email} , Ruolo:{" "}
+                    {cliente?.roles.map((ruolo) => ruolo?.roleName)}
+                  </li>
+                </>
               )
             )}
       </ul>

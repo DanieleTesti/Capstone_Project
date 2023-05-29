@@ -20,6 +20,10 @@
   padding: 2rem;
 }
 
+.sectionSport:hover {
+  /* cursor: wait; */
+}
+
 @media (max-width: 992px) {
   .sezioneLinesVerde,
   .sezioneLinesNero {

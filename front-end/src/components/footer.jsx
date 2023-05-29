@@ -5,8 +5,8 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer__top">
-        <div className="container-footer ">
-          <div className="row d-flex flex-row justify-content-around">
+        <div className="container-footer">
+          <div className="row d-flex flex-row justify-content-around mx-0">
             <div className="col-md-4 ">
               <h3 className="footer__title">Contatti</h3>
               <p className="footer__address">

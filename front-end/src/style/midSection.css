@@ -46,3 +46,6 @@ button {
 .collegamenti:hover {
   color: white;
 }
+.collegamenti > div:hover {
+  color: white;
+}

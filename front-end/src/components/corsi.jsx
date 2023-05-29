@@ -166,7 +166,8 @@ const CorsiList = () => {
 
   return (
     <div className="container">
-      <h2>Lista dei Corsi</h2>
+      <h1>Lista dei Corsi</h1>
+      <br />
       {utenteRole?.map((role) =>
         role?.roleName === "ROLE_ADMIN" ? (
           <div key={role?.id}>
@@ -258,7 +259,7 @@ const CorsiList = () => {
                             "Non puoi iscriverti. L'abbonamento è scaduto. Passa in palestra per rinnovarlo!"
                           );
                         } else {
-                          handleSubmitCorsoToCliente(corso?.id);
+                          handleSubmitCorsoToCliente(corso?.corso);
                         }
                       }}
                     >
@@ -266,15 +267,17 @@ const CorsiList = () => {
                     </button>
                   ) : (
                     <button
-                      onClick={() => handleSubmitCorsoToCliente(corso?.id)}
+                      onClick={() => handleSubmitCorsoToCliente(corso?.corso)}
                     >
                       +
                     </button>
                   )}
                 </div>
               ))}
+              <br />
             </ul>
             <h4>Corsi a cui sei iscritto:</h4>
+            <br />
             <ul>
               {cliente?.corso?.map((corso) => (
                 <li key={corso?.id}>{corso?.descrizione_Corso}</li>

@@ -3,7 +3,7 @@ import useAuth from "../hooks/useAuth";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import axios from "../api/axios";
 import { FETCH_CLIENTE } from "../Redux/ActionTypes/clienteAction";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 const LOGIN_URL = "/api/auth/login";
 
 const Login = () => {
@@ -54,11 +54,9 @@ const Login = () => {
         }
       );
 
-      const id = response?.data?.id;
+      const id = response?.data;
       const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
-
-      console.log(id, roles);
 
       setAutenticato({ id, username, password, roles, accessToken });
 

@@ -10,6 +10,8 @@ import { store } from "./Redux/Store";
 import ClientiList from "./components/allClienti";
 import Footer from "./components/footer";
 import CorsiPage from "./components/allCorsi";
+import "bootstrap/dist/js/bootstrap.bundle.js";
+import "./index.css";
 
 function App() {
   return (
