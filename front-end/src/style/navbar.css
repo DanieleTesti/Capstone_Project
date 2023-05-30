@@ -132,3 +132,7 @@ button {
 .gym-navbar .justify-content-end .nav-link:hover {
   text-decoration: underline;
 }
+
+.nav-link:hover {
+  color: white;
+}

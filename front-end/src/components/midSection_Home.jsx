@@ -44,6 +44,7 @@ function CoursesSection() {
                     alignConten: "center",
                     top: "140px",
                   }}
+                  className="descrizione_corsi"
                 >
                   <h3>Corso di Yoga</h3>
                   <p>
@@ -68,6 +69,7 @@ function CoursesSection() {
                     alignConten: "center",
                     top: "140px",
                   }}
+                  className="descrizione_corsi"
                 >
                   <h3>Corso di Karate</h3>
                   <p>
@@ -92,6 +94,7 @@ function CoursesSection() {
                     alignConten: "center",
                     top: "140px",
                   }}
+                  className="descrizione_corsi"
                 >
                   <h3>Corso di Nuoto</h3>
                   <p>
@@ -112,11 +115,14 @@ function SecondSection() {
     <>
       <div style={{}}>
         <div className="d-flex p-5 sport_vari">
-          <div style={{ width: "50%" }}>
+          <div style={{ width: "50%" }} className="photo">
             <Image src={sportAcquatici} alt="sportAcquatici" fluid />
           </div>
-          <div className="px-5" style={{ width: "50%" }}>
-            <h1 style={{ position: "absolute", paddingTop: "3rem" }}>
+          <div className="px-5 description" style={{ width: "50%" }}>
+            <h1
+              style={{ position: "absolute", paddingTop: "3rem" }}
+              className="course_name"
+            >
               SPORT ACQUATICI
             </h1>
             <h1 style={{ color: "lightgray", fontSize: "150px" }}>01</h1>
@@ -135,8 +141,11 @@ function SecondSection() {
           </div>
         </div>
         <div className="d-flex p-5 sport_vari">
-          <div className="px-5" style={{ width: "50%" }}>
-            <h1 style={{ position: "absolute", paddingTop: "3rem" }}>
+          <div className="px-5 description" style={{ width: "50%" }}>
+            <h1
+              style={{ position: "absolute", paddingTop: "3rem" }}
+              className="course_name"
+            >
               FITNESS
             </h1>
             <h1 style={{ color: "lightgray", fontSize: "150px" }}>02</h1>
@@ -149,17 +158,20 @@ function SecondSection() {
               <button>Scopri di più | ➡️</button>
             </Link>
           </div>
-          <div style={{ width: "50%" }}>
+          <div style={{ width: "50%" }} className="photo">
             <Image src={fitness} alt="fitness" fluid />
           </div>
         </div>
         <div className="d-flex">
           <div className="d-flex p-5 sport_vari">
-            <div style={{ width: "50%" }}>
+            <div style={{ width: "50%" }} className="photo">
               <Image src={arti_marziali} alt="arti_marziali" fluid />
             </div>
-            <div className="px-5" style={{ width: "50%" }}>
-              <h1 style={{ position: "absolute", paddingTop: "3rem" }}>
+            <div className="px-5 description" style={{ width: "50%" }}>
+              <h1
+                style={{ position: "absolute", paddingTop: "3rem" }}
+                className="course_name"
+              >
                 ARTI MARZIALI
               </h1>
               <h1 style={{ color: "lightgray", fontSize: "150px" }}>03</h1>

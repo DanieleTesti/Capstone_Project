@@ -38,6 +38,9 @@
   display: flex;
   align-items: center;
 }
+.descrizione_corsi {
+  padding-left: 2rem;
+}
 
 button {
   background-color: #59b999 !important;
@@ -48,4 +51,69 @@ button {
 }
 .collegamenti > div:hover {
   color: white;
+}
+
+@media (max-width: 768px) {
+  .sport_vari {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-right: 0rem !important;
+    padding-left: 0rem !important;
+  }
+
+  .sport_vari > div {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .sport_vari h1 {
+    position: static;
+    padding-top: 0;
+  }
+
+  .sport_vari p {
+    text-align: center;
+  }
+
+  .sport_vari button {
+    margin: 0 auto;
+  }
+  .sport_vari > div > img {
+    width: 100%;
+    width: 350px !important;
+    height: 210px;
+  }
+  .description {
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .course_name > h1 {
+    padding-left: 4rem !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .sport_vari {
+    padding: 0px !important;
+  }
+
+  .sport_vari > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100% !important;
+  }
+
+  .sport_vari > div > img {
+    width: 100%;
+  }
+
+  .sport_vari h1,
+  .sport_vari p {
+    text-align: center;
+  }
 }

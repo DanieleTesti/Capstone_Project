@@ -19,6 +19,7 @@ html {
   align-items: center;
   min-height: 100vh;
   padding: 1rem 0.5rem;
+  background-color: greenyellow;
 }
 
 section {
@@ -52,17 +53,12 @@ textarea {
   font-family: "Nunito", sans-serif;
   font-size: 22px;
   padding: 0.25rem;
-  /* border-radius: 0.5rem; */
 }
 
 label,
 button {
   margin-top: 1rem;
 }
-
-/* button {
-  padding: 0.5rem;
-} */
 
 .instructions {
   font-size: 0.75rem;

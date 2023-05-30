@@ -31,9 +31,11 @@ function GymNavbar() {
       className="gym-navbar px-5 justify-content-between"
       expanded={expanded}
     >
-      <Navbar.Brand className="navbar-brand d-flex align-items-center justify-content-center">
-        Palestra XYZ
-      </Navbar.Brand>
+      {/* <Navbar.Brand className="navbar-brand d-flex align-items-center justify-content-center">
+        <Link to={"/"} className="nav-link">
+          Palestra XYZ
+        </Link>
+      </Navbar.Brand> */}
 
       <Navbar.Toggle aria-controls="navbarNav" onClick={handleToggle} />
 
