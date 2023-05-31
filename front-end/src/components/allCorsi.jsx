@@ -15,7 +15,7 @@ import pilates from "../img/pilates.jpg";
 
 function SezioneAcqua() {
   return (
-    <>
+    <div>
       <h1 className="d-flex justify-content-center my-5">
         Corsi di fitness in acqua
       </h1>
@@ -115,13 +115,13 @@ function SezioneAcqua() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
 function SezioneFitness() {
   return (
-    <>
+    <div>
       <h1 className="d-flex justify-content-center my-5">Corsi di fitness </h1>
       <div style={{ width: "100%" }}>
         <div className="d-flex">
@@ -213,7 +213,7 @@ function SezioneFitness() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

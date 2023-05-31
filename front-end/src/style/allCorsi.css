@@ -20,10 +20,6 @@
   padding: 2rem;
 }
 
-.sectionSport:hover {
-  /* cursor: wait; */
-}
-
 @media (max-width: 992px) {
   .sezioneLinesVerde,
   .sezioneLinesNero {
@@ -64,5 +60,33 @@
   .immagine {
     margin-right: 0;
     margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .d-flex {
+    flex-direction: column;
+  }
+
+  .sezioneLinesVerde,
+  .sezioneLinesNero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .sectionSport {
+    margin-bottom: 1rem;
+  }
+
+  .sectionSport {
+    width: auto;
+    padding: 2rem;
+  }
+
+  .immagine {
+    margin-top: 1rem;
+    max-width: 100%;
   }
 }

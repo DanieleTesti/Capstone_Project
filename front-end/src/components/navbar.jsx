@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Navbar, NavDropdown, Button } from "react-bootstrap";
+import { Navbar, NavDropdown, Button, Image } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { FETCH_CLIENTE } from "../Redux/ActionTypes/clienteAction";
+import logo from "../img/logo.webp";
 import "../style/navbar.css";
 
 function GymNavbar() {
@@ -31,15 +32,19 @@ function GymNavbar() {
       className="gym-navbar px-5 justify-content-between"
       expanded={expanded}
     >
-      {/* <Navbar.Brand className="navbar-brand d-flex align-items-center justify-content-center">
+      <Navbar.Brand className="navbar-brand d-flex align-items-center justify-content-center">
         <Link to={"/"} className="nav-link">
-          Palestra XYZ
+          <Image
+            src={logo}
+            style={{ height: "100px" }}
+            className="rounded-circle"
+          ></Image>
         </Link>
-      </Navbar.Brand> */}
+      </Navbar.Brand>
 
       <Navbar.Toggle aria-controls="navbarNav" onClick={handleToggle} />
 
-      <Navbar.Collapse className="navbarNav justify-content-around">
+      <Navbar.Collapse className="navbarNav justify-content-around w-100">
         <div className="link d-flex align-items-center justify-content-center">
           <div className="d-flex">
             <Link to={"/"} className="nav-link">

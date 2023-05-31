@@ -59,17 +59,12 @@ const ClientiList = () => {
         value={selectedCourse}
         onChange={handleCorsoChange}
       >
-        <option value="">Tutti i corsi</option>
-        <br />
-        {corsi?.map((corso) => (
-          <option value={corso?.id} key={corso?.corso}>
-            {corso?.descrizione_Corso}
-          </option>
-        ))}
+        {/* ...options... */}
       </select>
       <ul key="clienti-list">
         {selectedCourse
           ? getClientiByCorso(selectedCourse)?.map((cliente) =>
+              // Add a unique "key" prop using the cliente's ID
               cliente?.roles.some(
                 (ruolo) => ruolo?.roleName === "ROLE_ADMIN"
               ) ? null : (
@@ -84,6 +79,7 @@ const ClientiList = () => {
               )
             )
           : clienti?.allUsers?.map((cliente) =>
+              // Add a unique "key" prop using the cliente's ID
               cliente?.roles?.some(
                 (ruolo) => ruolo?.roleName === "ROLE_ADMIN"
               ) ? null : (

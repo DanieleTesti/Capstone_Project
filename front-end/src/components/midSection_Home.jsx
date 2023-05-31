@@ -114,18 +114,21 @@ function SecondSection() {
   return (
     <>
       <div style={{}}>
-        <div className="d-flex p-5 sport_vari">
+        <div className="d-flex  sport_vari">
           <div style={{ width: "50%" }} className="photo">
             <Image src={sportAcquatici} alt="sportAcquatici" fluid />
           </div>
-          <div className="px-5 description" style={{ width: "50%" }}>
-            <h1
-              style={{ position: "absolute", paddingTop: "3rem" }}
-              className="course_name"
-            >
-              SPORT ACQUATICI
-            </h1>
-            <h1 style={{ color: "lightgray", fontSize: "150px" }}>01</h1>
+          <div className="px-3 description" style={{ width: "50%" }}>
+            <div className="d-flex flex-column align-items-center">
+              {" "}
+              <h1
+                style={{ position: "absolute", paddingTop: "3rem" }}
+                className="course_name"
+              >
+                SPORT ACQUATICI
+              </h1>
+              <h1 style={{ color: "lightgray", fontSize: "150px" }}>01</h1>
+            </div>
             <p>
               Due Piscine interne ed una esterna. La principale, 6 corsie x 25
               mt., dedicata al nuoto libero e all'acquagym, ospita anche
@@ -140,15 +143,18 @@ function SecondSection() {
             </Link>
           </div>
         </div>
-        <div className="d-flex p-5 sport_vari">
-          <div className="px-5 description" style={{ width: "50%" }}>
-            <h1
-              style={{ position: "absolute", paddingTop: "3rem" }}
-              className="course_name"
-            >
-              FITNESS
-            </h1>
-            <h1 style={{ color: "lightgray", fontSize: "150px" }}>02</h1>
+        <div className="d-flex  sport_vari">
+          <div className="px-3 description" style={{ width: "50%" }}>
+            <div className="d-flex flex-column align-items-center">
+              {" "}
+              <h1
+                style={{ position: "absolute", paddingTop: "3rem" }}
+                className="course_name"
+              >
+                FITNESS
+              </h1>
+              <h1 style={{ color: "lightgray", fontSize: "150px" }}>02</h1>
+            </div>
             <p>
               Una sala pesi completa di tutte le attrezzature per il tuo
               allenamento e quattro sale dove svolgere tutte le lezioni di
@@ -163,18 +169,20 @@ function SecondSection() {
           </div>
         </div>
         <div className="d-flex">
-          <div className="d-flex p-5 sport_vari">
+          <div className="d-flex  sport_vari">
             <div style={{ width: "50%" }} className="photo">
               <Image src={arti_marziali} alt="arti_marziali" fluid />
             </div>
-            <div className="px-5 description" style={{ width: "50%" }}>
-              <h1
-                style={{ position: "absolute", paddingTop: "3rem" }}
-                className="course_name"
-              >
-                ARTI MARZIALI
-              </h1>
-              <h1 style={{ color: "lightgray", fontSize: "150px" }}>03</h1>
+            <div className="px-3 description" style={{ width: "50%" }}>
+              <div className="d-flex flex-column align-items-center">
+                <h1
+                  style={{ position: "absolute", paddingTop: "3rem" }}
+                  className="course_name justify-content-center"
+                >
+                  ARTI MARZIALI
+                </h1>
+                <h1 style={{ color: "lightgray", fontSize: "150px" }}>03</h1>
+              </div>
               <p>Karate e Kick Boxing per adulti e bambini.</p>
               <Link to="/corsiPage">
                 <button>Scopri di più | ➡️</button>

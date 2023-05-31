@@ -107,7 +107,8 @@ button {
 }
 
 .gym-navbar .link .nav-link {
-  color: #fff;
+  text-shadow: #747474 1px 1px 1px;
+  color: white;
   margin-right: 10px;
   font-weight: bold;
 }
@@ -126,6 +127,7 @@ button {
 
 .gym-navbar .justify-content-end .nav-link {
   color: #fff;
+  text-shadow: #747474 1px 1px 1px;
   font-weight: bold;
 }
 
@@ -135,4 +137,8 @@ button {
 
 .nav-link:hover {
   color: white;
+  text-shadow: #747474 1px 1px 1px;
+}
+strong {
+  text-shadow: #747474 1px 1px 1px;
 }
