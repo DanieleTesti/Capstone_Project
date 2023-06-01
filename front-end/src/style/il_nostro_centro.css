@@ -1,6 +1,7 @@
 .descrizione > p,
 .descrizione > h1 {
   color: white;
+  padding: 1.5rem;
 }
 
 .descrizione {

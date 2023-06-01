@@ -1,39 +1,32 @@
-.second-section {
+update f00539e .second-section {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .course-item {
   display: flex;
   width: 100%;
   margin-bottom: 20px;
 }
-
 .course-image {
   flex-basis: 50%;
 }
-
 .course-image img {
   width: 100%;
   height: auto;
 }
-
 .course-description {
   flex-basis: 50%;
   padding: 0 20px;
 }
-
 .course-description h3 {
   font-size: 24px;
   margin-bottom: 10px;
 }
-
 .course-description p {
   font-size: 16px;
   line-height: 1.5;
 }
-
 .sport_vari {
   display: flex;
   align-items: center;
@@ -41,39 +34,32 @@
 .descrizione_corsi {
   padding-left: 2rem;
 }
-
 button {
   background-color: #59b999 !important;
 }
-
 .collegamenti:hover {
   color: white;
 }
 .collegamenti > div:hover {
   color: white;
 }
-
 @media (max-width: 768px) {
   .sport_vari {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-
   .sport_vari > div {
     width: 100%;
     margin-bottom: 1.5rem;
   }
-
   .sport_vari h1 {
     position: static;
     padding-top: 0;
   }
-
   .sport_vari p {
     text-align: center;
   }
-
   .sport_vari button {
     margin: 0 auto;
   }
@@ -88,30 +74,28 @@ button {
     flex-direction: column;
     justify-content: center;
   }
-
   .course_name > h1 {
     padding-left: 4rem !important;
   }
 }
-
 @media (max-width: 375px) {
   .sport_vari {
     padding: 0px !important;
   }
-
   .sport_vari > div {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100% !important;
   }
-
   .sport_vari > div > img {
     width: 100%;
   }
-
   .sport_vari h1,
   .sport_vari p {
     text-align: center;
   }
+  /* .colonna_sport {
+    width: 100%;
+  } */
 }

@@ -10,22 +10,25 @@ function GymInfo() {
   return (
     <div>
       <Row className=" my-5 mx-3 ">
-        <h1 className=" mb-4">Il Centro Sportivo</h1>
-        <p>
-          Benvenuti al nostro centro sportivo situato in Via Roma 1, nel cuore
-          di Roma. La nostra struttura si estende su una superficie di 3000 mq e
-          offre una vasta gamma di servizi e attività per soddisfare le esigenze
-          di appassionati dello sport e del benessere. Potrete allenarvi nelle
-          nostre moderne sale fitness, nuotare nella nostra piscina coperta,
-          praticare tennis e calcio sui nostri campi e partecipare a corsi di
-          gruppo come aerobica, yoga e pilates. I nostri istruttori qualificati
-          vi supporteranno durante i vostri allenamenti e saremo lieti di
-          aiutarvi a raggiungere i vostri obiettivi di fitness. Siamo impegnati
-          a offrire un ambiente accogliente e motivante, dove potrete godervi al
-          meglio l'esperienza sportiva. Vi aspettiamo nel nostro centro sportivo
-          per iniziare insieme il vostro percorso verso uno stile di vita attivo
-          e salutare.
-        </p>
+        <Col md={8}>
+          <h1 className=" mb-4">Il Centro Sportivo</h1>
+          <p>
+            Benvenuti al nostro centro sportivo situato in Via Roma 1, nel cuore
+            di Roma. La nostra struttura si estende su una superficie di 3000 mq
+            e offre una vasta gamma di servizi e attività per soddisfare le
+            esigenze di appassionati dello sport e del benessere. Potrete
+            allenarvi nelle nostre moderne sale fitness, nuotare nella nostra
+            piscina coperta, praticare tennis e calcio sui nostri campi e
+            partecipare a corsi di gruppo come aerobica, yoga e pilates. I
+            nostri istruttori qualificati vi supporteranno durante i vostri
+            allenamenti e saremo lieti di aiutarvi a raggiungere i vostri
+            obiettivi di fitness. Siamo impegnati a offrire un ambiente
+            accogliente e motivante, dove potrete godervi al meglio l'esperienza
+            sportiva. Vi aspettiamo nel nostro centro sportivo per iniziare
+            insieme il vostro percorso verso uno stile di vita attivo e
+            salutare.
+          </p>
+        </Col>
       </Row>
       <div className="all">
         <Row className="justify-content-center mx-0">
@@ -50,6 +53,7 @@ function GymInfo() {
             </Link>
           </Col>
         </Row>
+
         <Row className="justify-content-center mx-0">
           <Col md={6} className=" immagine px-0">
             <Link to="/corsiPage">
@@ -69,6 +73,7 @@ function GymInfo() {
             </p>
           </Col>
         </Row>
+
         <Row className="justify-content-center mx-0">
           <Col md={6} className="descrizione">
             <h1>FITNESS</h1>

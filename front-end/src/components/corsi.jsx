@@ -185,7 +185,62 @@ const CorsiList = () => {
                 ))}
               </ul>
             )}
-            {/* ...rest of the code... */}
+            <form onSubmit={handleSubmitInsegnante} className="form-container">
+              <label>
+                Nome:
+                <input
+                  type="text"
+                  value={nome}
+                  onChange={handleNomeChange}
+                  className="form-input"
+                />
+              </label>
+              <br />
+              <label>
+                Cognome:
+                <input
+                  type="text"
+                  value={cognome}
+                  onChange={handleCognomeChange}
+                  className="form-input"
+                />
+              </label>
+              <br />
+              <button onClick={addInsegnante} className="form-button">
+                Aggiungi Insegnante
+              </button>
+            </form>
+            <br />
+            <div>
+              <h2>Creazione Corso</h2>
+              <form onSubmit={handleSubmitCorso} className="form-container">
+                <label>Descrizione Corso:</label>
+                <input
+                  type="text"
+                  id="descrizioneCorso"
+                  value={descrizione_Corso}
+                  onChange={handledescrizioneCorsoChange}
+                  required
+                  className="form-input"
+                />
+
+                <br />
+
+                <label>ID Insegnante:</label>
+                <input
+                  type="number"
+                  id="idInsegnante"
+                  value={id_insegnante}
+                  onChange={handleidInsegnanteChange}
+                  required
+                  className="form-input"
+                />
+                <br />
+                <button type="submit" className="form-button">
+                  Crea Corso
+                </button>
+              </form>
+            </div>
           </div>
         ) : (
           <>
@@ -196,12 +251,38 @@ const CorsiList = () => {
                     {corso?.descrizione_Corso}. Insegnante:{" "}
                     {corso?.insegnante?.nome} {corso?.insegnante?.cognome}
                   </li>
-                  {/* ...button code... */}
+                  {fine_abb && new Date(fine_abb) < new Date() ? (
+                    <button
+                      onClick={() => {
+                        if (fine_abb && new Date(fine_abb) < new Date()) {
+                          alert(
+                            "Non puoi iscriverti. L'abbonamento è scaduto. Passa in palestra per rinnovarlo!"
+                          );
+                        } else {
+                          handleSubmitCorsoToCliente(corso?.corso);
+                        }
+                      }}
+                    >
+                      +
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => handleSubmitCorsoToCliente(corso?.corso)}
+                    >
+                      +
+                    </button>
+                  )}
                 </div>
               ))}
               <br />
             </ul>
-            {/* ...rest of the code... */}
+            <h4>Corsi a cui sei iscritto:</h4>
+            <br />
+            <ul>
+              {cliente?.corso?.map((corso) => (
+                <li key={corso?.id}>{corso?.descrizione_Corso}</li>
+              ))}
+            </ul>
           </>
         )
       )}

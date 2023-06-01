@@ -3,21 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { ALL_USER, allClienti } from "../Redux/ActionTypes/clienteAction";
 import { CORSI_ALL, fetchCorsi } from "../Redux/ActionTypes/corsiAction";
 import "../style/allClienti.css";
-
 const ClientiList = () => {
   const clienti = useSelector((state) => state?.cliente);
   const corsi = useSelector((state) => state?.corsi?.AllCorsi);
   const gestoreToken = useSelector(
     (state) => state.cliente?.clienteFetch?.accessToken
   );
-
   const [selectedCourse, setSelectedCourse] = useState("");
   const dispatch = useDispatch();
-
   const handleCorsoChange = (event) => {
     setSelectedCourse(event.target.value);
   };
-
   const getClientiByCorso = (corsoId) => {
     if (!corsoId) {
       return clienti?.allUsers;
@@ -27,7 +23,6 @@ const ClientiList = () => {
       );
     }
   };
-
   useEffect(() => {
     (async () => {
       const data = await allClienti(gestoreToken);
@@ -44,7 +39,6 @@ const ClientiList = () => {
       });
     })();
   }, []);
-
   return (
     <div className="MyContainer">
       <h1>Lista di clienti iscritti in palestra</h1>
@@ -59,12 +53,17 @@ const ClientiList = () => {
         value={selectedCourse}
         onChange={handleCorsoChange}
       >
-        {/* ...options... */}
+        <option value="">Tutti i corsi</option>
+        <br />
+        {corsi?.map((corso) => (
+          <option value={corso?.id} key={corso?.corso}>
+            {corso?.descrizione_Corso}
+          </option>
+        ))}
       </select>
       <ul key="clienti-list">
         {selectedCourse
           ? getClientiByCorso(selectedCourse)?.map((cliente) =>
-              // Add a unique "key" prop using the cliente's ID
               cliente?.roles.some(
                 (ruolo) => ruolo?.roleName === "ROLE_ADMIN"
               ) ? null : (
@@ -79,7 +78,6 @@ const ClientiList = () => {
               )
             )
           : clienti?.allUsers?.map((cliente) =>
-              // Add a unique "key" prop using the cliente's ID
               cliente?.roles?.some(
                 (ruolo) => ruolo?.roleName === "ROLE_ADMIN"
               ) ? null : (
@@ -97,5 +95,4 @@ const ClientiList = () => {
     </div>
   );
 };
-
 export default ClientiList;
