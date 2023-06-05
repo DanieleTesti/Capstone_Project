@@ -9,9 +9,6 @@ const LOGIN_URL = "/api/auth/login";
 const Login = () => {
   const { setAuth } = useAuth();
 
-  // const fetchAllClienti = useSelector((state) => state.AllUsers);
-  // const clienteFetchato = useSelector((state) => state.cliente);
-
   const [autenticato, setAutenticato] = useState(setAuth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -37,7 +34,6 @@ const Login = () => {
   useEffect(() => {
     if (success) {
       navigate("/");
-      // setSuccess(false);
     }
   }, [success]);
 

@@ -39,6 +39,7 @@ const ClientiList = () => {
       });
     })();
   }, []);
+
   return (
     <div className="MyContainer">
       <h1>Lista di clienti iscritti in palestra</h1>
@@ -62,35 +63,53 @@ const ClientiList = () => {
         ))}
       </select>
       <ul key="clienti-list">
-        {selectedCourse
-          ? getClientiByCorso(selectedCourse)?.map((cliente) =>
-              cliente?.roles.some(
-                (ruolo) => ruolo?.roleName === "ROLE_ADMIN"
-              ) ? null : (
-                <>
-                  <br />
-                  <li key={cliente.id_cliente}>
-                    Id cliente: {cliente.id_cliente} , Username:{" "}
-                    {cliente?.username} , Mail: {cliente?.email} , Ruolo:{" "}
-                    {cliente?.roles.map((ruolo) => ruolo?.roleName)}
-                  </li>
-                </>
-              )
-            )
-          : clienti?.allUsers?.map((cliente) =>
-              cliente?.roles?.some(
-                (ruolo) => ruolo?.roleName === "ROLE_ADMIN"
-              ) ? null : (
-                <>
-                  <br />
-                  <li key={cliente.id_cliente}>
-                    Id cliente: {cliente.id_cliente} , Username:{" "}
-                    {cliente?.username} , Mail: {cliente?.email} , Ruolo:{" "}
-                    {cliente?.roles.map((ruolo) => ruolo?.roleName)}
-                  </li>
-                </>
-              )
-            )}
+        {selectedCourse ? (
+          <table>
+            <thead>
+              <tr>
+                <th>Id cliente</th>
+                <th>Username</th>
+                <th>Mail</th>
+              </tr>
+            </thead>
+            <tbody>
+              {getClientiByCorso(selectedCourse)?.map((cliente) =>
+                cliente?.roles.some(
+                  (ruolo) => ruolo?.roleName === "ROLE_ADMIN"
+                ) ? null : (
+                  <tr key={cliente.id_cliente}>
+                    <td>{cliente.id_cliente}</td>
+                    <td>{cliente?.username}</td>
+                    <td>{cliente?.email}</td>
+                  </tr>
+                )
+              )}
+            </tbody>
+          </table>
+        ) : (
+          <table>
+            <thead>
+              <tr>
+                <th>Id cliente</th>
+                <th>Username</th>
+                <th>Mail</th>
+              </tr>
+            </thead>
+            <tbody>
+              {clienti?.allUsers?.map((cliente) =>
+                cliente?.roles?.some(
+                  (ruolo) => ruolo?.roleName === "ROLE_ADMIN"
+                ) ? null : (
+                  <tr key={cliente.id_cliente}>
+                    <td>{cliente.id_cliente}</td>
+                    <td>{cliente?.username}</td>
+                    <td>{cliente?.email}</td>
+                  </tr>
+                )
+              )}
+            </tbody>
+          </table>
+        )}
       </ul>
     </div>
   );

@@ -19,7 +19,7 @@ html {
   align-items: center;
   min-height: 100vh;
   padding: 1rem 0.5rem;
-  background-color: greenyellow;
+  background-color: #252525;
 }
 
 section {
@@ -30,7 +30,8 @@ section {
   flex-direction: column;
   justify-content: flex-start;
   padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.4);
+  /* background-color: #59b999; */
+  color: black;
 }
 
 form {

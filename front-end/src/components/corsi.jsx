@@ -174,16 +174,26 @@ const CorsiList = () => {
             {corsi?.length === 0 ? (
               <p>NON CI SONO CORSI DISPONIBILI</p>
             ) : (
-              <ul>
-                {corsi?.map((corso) => (
-                  <div key={corso?.id}>
-                    <li key={corso?.id}>
-                      {corso?.descrizione_Corso}. Insegnante:{" "}
-                      {corso?.insegnante?.nome} {corso?.insegnante?.cognome}
-                    </li>
-                  </div>
-                ))}
-              </ul>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Descrizione Corso</th>
+                    <th>Insegnante</th>
+                    <th>ID Insegnante</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {corsi?.map((corso) => (
+                    <tr key={corso?.id}>
+                      <td>{corso?.descrizione_Corso}</td>
+                      <td>
+                        {corso?.insegnante?.nome} {corso?.insegnante?.cognome}
+                      </td>
+                      <td>{corso?.insegnante?.id_insegnante}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             )}
             <form onSubmit={handleSubmitInsegnante} className="form-container">
               <label>

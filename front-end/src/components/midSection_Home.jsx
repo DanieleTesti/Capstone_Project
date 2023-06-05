@@ -26,7 +26,7 @@ function CoursesSection() {
       <div>
         <div>
           <h2>I nostri corsi</h2>
-          <Row>
+          <Row className="mx-0">
             <Col
               style={{ position: "relative", padding: "0px" }}
               className="colonna_sport"
@@ -124,7 +124,7 @@ function CoursesSection() {
 function SecondSection() {
   return (
     <>
-      <div style={{}}>
+      <div>
         <div className="d-flex  sport_vari">
           <div style={{ width: "50%" }} className="photo">
             <Image src={sportAcquatici} alt="sportAcquatici" fluid />
