@@ -87,7 +87,7 @@ const Login = () => {
           <h1>You are logged in!</h1>
           <br />
           <p>
-            <Link to={"/"} className="MyLink2">
+            <Link to={"/"} className="MyLink2" style={{ color: "black" }}>
               Go to Home
             </Link>
           </p>
@@ -101,7 +101,7 @@ const Login = () => {
           >
             {errMsg}
           </p>
-          <h1>Sign In</h1>
+          <h1 style={{ color: "black" }}>Sign In</h1>
           <form onSubmit={handleSubmit}>
             <label htmlFor="username">Username:</label>
             <input
@@ -123,13 +123,15 @@ const Login = () => {
               required
             />
             <br />
-            <button>Sign In</button>
+            <button style={{ color: "black" }}>Sign In</button>
           </form>
           <p>
             Need an Account?
             <br />
             <span className="line">
-              <Link to="/register">Sign Up</Link>
+              <Link to="/register" style={{ color: "black" }}>
+                Sign Up
+              </Link>
             </span>
           </p>
         </section>

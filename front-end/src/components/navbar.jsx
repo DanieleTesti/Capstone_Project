@@ -47,28 +47,38 @@ function GymNavbar() {
       <Navbar.Collapse className="navbarNav justify-content-around w-100">
         <div className="link d-flex align-items-center justify-content-center">
           <div className="d-flex">
-            <Link to={"/"} className="nav-link">
+            <Link to="/" className="nav-link">
               Home
             </Link>
-            <Link to={"/centro"} className="nav-link">
+            <Link to="/centro" className="nav-link">
               Il nostro centro
             </Link>
-            <Link to={"/corsi"} className="nav-link">
-              Corsi
+            <Link to="/corsiPage" className="nav-link">
+              I nostri corsi
             </Link>
-            {utenteRole?.map((role) =>
-              role?.roleName === "ROLE_ADMIN" ? (
-                <Link key={role?.id} to="/clienti" className="nav-link">
-                  Clienti
-                </Link>
-              ) : (
-                role?.roleName !== "ROLE_ADMIN" && (
-                  <Link key={role?.id} to="corsiPage" className="nav-link">
-                    I nostri corsi
-                  </Link>
-                )
-              )
-            )}
+            {utenteRole?.map((role) => {
+              if (role?.roleName === "ROLE_ADMIN") {
+                return (
+                  <React.Fragment key={role?.id}>
+                    <Link to="/corsi" className="nav-link">
+                      Corsi
+                    </Link>
+                    <Link to="/clienti" className="nav-link">
+                      Clienti
+                    </Link>
+                  </React.Fragment>
+                );
+              } else if (role?.roleName === "ROLE_USER") {
+                return (
+                  <React.Fragment key={role?.id}>
+                    <Link to="/corsi" className="nav-link">
+                      Corsi
+                    </Link>
+                  </React.Fragment>
+                );
+              }
+              return null;
+            })}
           </div>
         </div>
         <div className="d-flex justify-content-end">

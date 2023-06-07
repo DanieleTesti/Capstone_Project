@@ -194,7 +194,7 @@ function SecondSection() {
               >
                 ARTI MARZIALI
               </h1>
-              <h1 style={{ color: "lightgray", fontSize: "150px" }}>01</h1>
+              <h1 style={{ color: "lightgray", fontSize: "150px" }}>03</h1>
             </div>
             <p>Karate e Kick Boxing per adulti e bambini.</p>
             <Link to="/corsiPage">

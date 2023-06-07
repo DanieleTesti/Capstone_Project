@@ -13,10 +13,13 @@ import com.Security_JUnit.models.Corso;
 import com.Security_JUnit.models.Insegnante;
 import com.Security_JUnit.payload.CorsoDto;
 import com.Security_JUnit.repository.CorsoRepo;
+import com.Security_JUnit.repository.InsegnanteRepo;
 
 @Service
 public class CorsiService {
 
+	@Autowired
+	InsegnanteRepo insegnanterepo;
 	@Autowired
 	AuthServiceImpl authService;
 	@Autowired
@@ -61,10 +64,10 @@ public class CorsiService {
 		return corsorepo.findAll(pag);
 	}
 
-	public Corso creaCorso(CorsoDto c) {
+	public Corso creaCorso(CorsoDto c, Long id) {
 		Corso corso = new Corso();
 		corso.setDescrizione_Corso(c.getDescrizione_Corso());
-		corso.setInsegnante(c.getInsegnante());
+		corso.setInsegnante(insegnanterepo.findById(id).get());
 		corsorepo.save(corso);
 		System.out.println("Corso creato");
 		return corso;

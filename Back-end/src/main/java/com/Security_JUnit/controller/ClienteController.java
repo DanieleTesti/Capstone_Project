@@ -39,7 +39,7 @@ public class ClienteController {
 	}
 
 	@GetMapping("/username/{username}")
-	// @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 	public ResponseEntity<Cliente> findByUsername(@PathVariable String username) {
 		return new ResponseEntity<Cliente>(clientiService.findUserByUsername(username), HttpStatus.OK);
 	}
@@ -77,6 +77,5 @@ public class ClienteController {
 		clientiService.saveOrUpdate(cliente); // salva il cliente nel database
 		return new ResponseEntity<Cliente>(cliente, HttpStatus.CREATED);
 	}
-
 
 }

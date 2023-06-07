@@ -34,6 +34,7 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_cliente;
+	@Column(nullable = false)
 	private String name;
 	@Column(nullable = false, unique = true)
 	private String username;
@@ -45,7 +46,7 @@ public class Cliente {
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	private Set<Role> roles = new HashSet<>();
 
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Corso> corso = new ArrayList<>();
 
 }

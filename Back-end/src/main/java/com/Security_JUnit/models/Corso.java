@@ -1,5 +1,6 @@
 package com.Security_JUnit.models;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,9 +26,7 @@ public class Corso {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long corso;
 	private String Descrizione_Corso;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Insegnante insegnante;
-//	@ManyToOne
-//	@JoinColumn(name = "id_cliente")
-//	private Cliente cliente;
+
 }

@@ -3,10 +3,12 @@ package com.Security_JUnit.models;
 import java.time.LocalDate;
 
 import com.Security_JUnit.enums.Abbonamento_enum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -32,7 +34,8 @@ public class Abbonamento {
 	private LocalDate inizio_abbonamento;
 	private LocalDate fine_abbonamento;
 
-	@OneToOne
+	@JsonIgnore
+	@OneToOne(fetch = FetchType.EAGER)
 	private Cliente cliente;
 
 }

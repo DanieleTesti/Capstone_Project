@@ -32,7 +32,7 @@ public class CorsoController {
 	ClientiService clienteservice;
 
 	@GetMapping("/all")
-//	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 	public ResponseEntity<List<Corso>> trovaCorsiAll() {
 		return new ResponseEntity<List<Corso>>(corsoservice.findAllCorsi(), HttpStatus.OK);
 	}
@@ -55,15 +55,10 @@ public class CorsoController {
 		return new ResponseEntity<Corso>(corsoservice.modificaCorso(c), HttpStatus.OK);
 	}
 
-	@PostMapping("/add")
+	@PostMapping("/add/{id}")
 	@PreAuthorize("hasRole('ADMIN')")
-	public ResponseEntity<Corso> creaCorso(@RequestBody CorsoDto c) {
-		return new ResponseEntity<Corso>(corsoservice.creaCorso(c), HttpStatus.OK);
+	public ResponseEntity<Corso> creaCorso(@RequestBody CorsoDto c, @PathVariable Long id) {
+		return new ResponseEntity<Corso>(corsoservice.creaCorso(c, id), HttpStatus.OK);
 	}
 
-//	@PostMapping("/add")
-//	@PreAuthorize("hasRole('ADMIN')")
-//	public ResponseEntity<Corso> addClienteToCorso(@RequestBody Long c, Long id) {
-//		return new ResponseEntity<Corso, Cliente>(corsoservice.findById(c), clienteservice.findById(id), HttpStatus.OK);
-//	}
 }

@@ -54,15 +54,15 @@ public class AuthRunner implements ApplicationRunner {
 		// Insegnantes.creaInsegnante("Flavio", "Bianchi");
 
 		// CREAZIONE CORSO
-		// corsos.creaCorso("Karate", Insegnantes.findById(3l));
+		// corsos.creaCorso("Karate", Insegnantes.findById(1l));
 
 		// CREAZIONE UTENTE
-		// clientis.creaCliente("daniele", "daniele", "daniele@mail.com",
-		// passwordEncoder.encode("daniele"));
+		// clientis.creaCliente("gestore", "gestore", "gestore.ps@mail.com",
+		// passwordEncoder.encode("gestore"));
 
 		// CREAZIONE ABBONAMENTO
 		// abbonamentos.addSubscription(Abbonamento_enum.ANNUALE,
-		// clientis.findById(1l));
+		// clientis.findById(4l).getId_cliente());
 
 	}
 	

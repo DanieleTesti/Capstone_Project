@@ -1,5 +1,7 @@
 import React from "react";
 import "../style/footer.css";
+import linkedin from "../img/linkedin.png";
+import { Image } from "react-bootstrap";
 
 function Footer() {
   return (
@@ -43,13 +45,18 @@ function Footer() {
             <div className="col-md-6">
               <ul className="footer__links">
                 <li>
-                  <a href="#">Termini e condizioni</a>
+                  <strong>
+                    <a href="https://www.linkedin.com/in/daniele-testi-3a3138268/">
+                      LinkedIn
+                    </a>
+                  </strong>
                 </li>
                 <li>
-                  <a href="#">Privacy Policy</a>
-                </li>
-                <li>
-                  <a href="#">Mappa del sito</a>
+                  <strong>
+                    <a href="https://github.com/DanieleTesti?tab=repositories">
+                      GitHub
+                    </a>
+                  </strong>
                 </li>
               </ul>
             </div>

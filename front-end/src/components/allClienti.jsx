@@ -64,7 +64,7 @@ const ClientiList = () => {
       </select>
       <ul key="clienti-list">
         {selectedCourse ? (
-          <table>
+          <table className="my-5">
             <thead>
               <tr>
                 <th>Id cliente</th>
@@ -87,7 +87,7 @@ const ClientiList = () => {
             </tbody>
           </table>
         ) : (
-          <table>
+          <table className="my-5">
             <thead>
               <tr>
                 <th>Id cliente</th>

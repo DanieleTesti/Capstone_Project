@@ -22,7 +22,7 @@ import com.Security_JUnit.service.InsegnanteService;
 
 @RestController
 @RequestMapping("/api/insegnante")
-@CrossOrigin(origins = "http://localhost:3000", maxAge = 6000000, allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 600000000, allowCredentials = "true")
 public class InsegnanteController {
 
 	@Autowired

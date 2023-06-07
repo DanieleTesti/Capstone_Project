@@ -63,8 +63,8 @@ public class InsegnanteService {
 
 	public Insegnante creaInsegnante(InsegnanteDto i) {
 		Insegnante insegnante = new Insegnante();
-		i.setNome(i.getNome());
-		i.setCognome(i.getCognome());
+		insegnante.setNome(i.getNome());
+		insegnante.setCognome(i.getCognome());
 		insegnanterepo.save(insegnante);
 		System.out.println("Insegnante creato");
 		return insegnante;

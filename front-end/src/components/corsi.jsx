@@ -75,7 +75,7 @@ const CorsiList = () => {
 
     if (isInsegnantePresente) {
       alert(
-        "!! ERRORE !! L'insegnante è già assegnato a un corso. Crea un altro insegnante o assegnane uno nuovo"
+        "!! ERRORE !! L'insegnante è già assegnato a un corso. Crea un altro insegnante o assegnane uno diverso"
       );
     } else {
       const data = await addCorso(
@@ -177,6 +177,7 @@ const CorsiList = () => {
               <table>
                 <thead>
                   <tr>
+                    <th>ID Corso</th>
                     <th>Descrizione Corso</th>
                     <th>Insegnante</th>
                     <th>ID Insegnante</th>
@@ -184,7 +185,8 @@ const CorsiList = () => {
                 </thead>
                 <tbody>
                   {corsi?.map((corso) => (
-                    <tr key={corso?.id}>
+                    <tr key={corso?.corso}>
+                      <td>{corso?.corso}</td>
                       <td>{corso?.descrizione_Corso}</td>
                       <td>
                         {corso?.insegnante?.nome} {corso?.insegnante?.cognome}
@@ -254,45 +256,77 @@ const CorsiList = () => {
           </div>
         ) : (
           <>
-            <ul>
-              {corsi?.map((corso) => (
-                <div key={corso?.id}>
-                  <li key={corso?.id}>
-                    {corso?.descrizione_Corso}. Insegnante:{" "}
-                    {corso?.insegnante?.nome} {corso?.insegnante?.cognome}
-                  </li>
-                  {fine_abb && new Date(fine_abb) < new Date() ? (
-                    <button
-                      onClick={() => {
-                        if (fine_abb && new Date(fine_abb) < new Date()) {
-                          alert(
-                            "Non puoi iscriverti. L'abbonamento è scaduto. Passa in palestra per rinnovarlo!"
-                          );
-                        } else {
-                          handleSubmitCorsoToCliente(corso?.corso);
-                        }
-                      }}
-                    >
-                      +
-                    </button>
-                  ) : (
-                    <button
-                      onClick={() => handleSubmitCorsoToCliente(corso?.corso)}
-                    >
-                      +
-                    </button>
-                  )}
-                </div>
-              ))}
+            <ul className="px-0">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID Corso</th>
+                    <th>Descrizione Corso</th>
+                    <th>Insegnante</th>
+                    <th>Iscriviti</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {corsi?.map((corso) => (
+                    <tr key={corso?.id}>
+                      <td>{corso?.corso}</td>
+                      <td>{corso?.descrizione_Corso}</td>
+                      <td>
+                        {corso?.insegnante?.nome} {corso?.insegnante?.cognome}
+                      </td>
+                      <td>
+                        {fine_abb && new Date(fine_abb) < new Date() ? (
+                          <button
+                            onClick={() => {
+                              if (fine_abb && new Date(fine_abb) < new Date()) {
+                                alert(
+                                  "Non puoi iscriverti. L'abbonamento è scaduto. Passa in palestra per rinnovarlo!"
+                                );
+                              } else {
+                                handleSubmitCorsoToCliente(corso?.corso);
+                              }
+                            }}
+                          >
+                            +
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() =>
+                              handleSubmitCorsoToCliente(corso?.corso)
+                            }
+                          >
+                            +
+                          </button>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
               <br />
             </ul>
             <h4>Corsi a cui sei iscritto:</h4>
             <br />
-            <ul>
-              {cliente?.corso?.map((corso) => (
-                <li key={corso?.id}>{corso?.descrizione_Corso}</li>
-              ))}
-            </ul>
+            <table>
+              <thead>
+                <tr>
+                  <th>ID Corso</th>
+                  <th>Descrizione Corso</th>
+                  <th>Insegnante</th>
+                </tr>
+              </thead>
+              <tbody>
+                {cliente?.corso?.map((corso) => (
+                  <tr key={corso?.id}>
+                    <td>{corso?.corso}</td>
+                    <td>{corso?.descrizione_Corso}</td>
+                    <td>
+                      {corso?.insegnante?.nome} {corso?.insegnante?.cognome}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </>
         )
       )}
